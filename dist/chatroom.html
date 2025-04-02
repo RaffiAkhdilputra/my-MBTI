@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="wid
+  th=device-width, initial-scale=1.0"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
+      integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/emoji-picker/1.3.0/js/emoji-picker.min.js"
+      integrity="sha512-YfxG/O/w/NLRY0pZ8TfuIZVefdDVyN8MOzfyvieoCQ++vj8+W9RUE3oiCqPCdvSJ3UDliy4WPyWutdewPqHgYw=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    ></script>
+    <link href="chatroom-style.css" rel="stylesheet" />
+    <title>my MBTI</title>
+  </head>
+  <body>
+    <span
+      id="nav-btn"
+      class="absolute top-5 left-5 text-3xl btn btn-ghost py-5"
+    >
+      <i class="fa-solid fa-bars"></i>
+    </span>
+
+    <!-- Main Body -->
+    <div class="flex flex-row">
+      <!-- SIDEBAR -->
+      <div class="sidebar h-dvh min-w-70">
+        <div class="mt-20 px-5">
+          <button class="btn btn-soft w-full">
+            <span><i class="fa-solid fa-message"></i></span>New Chat!
+          </button>
+          <h1 class="mt-2">Recent</h1>
+        </div>
+      </div>
+
+      <!-- CHAT -->
+      <div class="h-dvh basis-full flex flex-col">
+        <!-- Chat Body -->
+        <div class="h-dvh basis-full overflow-y-auto pt-3">
+          <!-- AI response -->
+          <section class="px-20 pt-5">
+            <div class="response-container flex flex-row gap-2">
+              <span class="bg-black w-10 h-10 rounded-full text-center pt-1.5">
+                <i class="fa-solid fa-robot"></i>
+              </span>
+              <p
+                class="response-message max-w-80 bg-black px-8 py-2 rounded-3xl"
+              >
+                Lorem, ipsum dolor sit amet consectetur adipisicing elit.
+                Corrupti nesciunt doloremque, quod adipisci, consequatur magni
+                sed esse quidem alias ipsum quam perferendis ex dolor?
+                Accusantium deserunt iste labore quisquam at.
+              </p>
+            </div>
+          </section>
+          <!-- AI response === -->
+          <section class="px-20 pt-5">
+            <div class="response-container flex flex-row gap-2">
+              <span class="bg-black w-10 h-10 rounded-full text-center pt-1.5">
+                <i class="fa-solid fa-robot"></i>
+              </span>
+              <p
+                class="response-message max-w-80 bg-black px-8 py-2 rounded-3xl"
+              >
+                Lorem, ipsum dolor sit amet consectetur adipisicing elit.
+                Corrupti nesciunt doloremque, quod adipisci, consequatur magni
+                sed esse quidem alias ipsum quam perferendis ex dolor?
+                Accusantium deserunt iste labore quisquam at.
+              </p>
+            </div>
+          </section>
+          <!-- AI response -->
+          <section class="px-20 pt-5">
+            <div class="response-container flex flex-row gap-2">
+              <span class="bg-black w-10 h-10 rounded-full text-center pt-1.5">
+                <i class="fa-solid fa-robot"></i>
+              </span>
+              <p
+                class="response-message max-w-80 bg-black px-8 py-2 rounded-3xl"
+              >
+                Lorem, ipsum dolor sit amet consectetur adipisicing elit.
+                Corrupti nesciunt doloremque, quod adipisci, consequatur magni
+                sed esse quidem alias ipsum quam perferendis ex dolor?
+                Accusantium deserunt iste labore quisquam at.
+              </p>
+            </div>
+          </section>
+
+          <!-- USER -->
+          <section class="pr-16 pt-5 justify-items-end items-end">
+            <div
+              class="user-input-container max-w-80 bg-black px-8 py-2 rounded-3xl"
+            >
+              <p class="user-input-message">
+                Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+                Soluta, adipisci!
+              </p>
+            </div>
+          </section>
+
+          <!-- MBTI Question -->
+          <section class="px-20 pt-5">
+            <div class="response-container flex flex-row gap-2">
+              <span class="bg-black w-10 h-10 rounded-full text-center pt-1.5">
+                <i class="fa-solid fa-robot"></i>
+              </span>
+              <div class="flex flex-col gap-2">
+                <p
+                  class="response-message max-w-80 bg-black px-8 py-2 rounded-3xl"
+                >
+                  Lorem, ipsum dolor sit amet consectetur adipisicing elit.
+                  Corrupti nesciunt doloremque, quod adipisci, consequatur magni
+                  sed esse quidem alias ipsum quam perferendis ex dolor?
+                  Accusantium deserunt iste labore quisquam at.
+                </p>
+              </div>
+            </div>
+          </section>
+
+          <!-- Loading -->
+          <section class="px-20 pt-5">
+            <div class="response-container flex flex-row gap-2">
+              <span class="bg-black w-10 h-10 rounded-full text-center pt-1.5">
+                <i class="fa-solid fa-robot"></i>
+              </span>
+              <span class="loading loading-ring loading-xl"></span>
+            </div>
+          </section>
+        </div>
+
+        <!-- User Input  -->
+        <div class="flex px-20 pt-5 pb-20">
+          <!-- Text Input -->
+          <input
+            class="input w-full rounded-3xl px-5 mr-2"
+            type="textarea"
+            name="user-input"
+            id="user-input"
+            placeholder="chat with gemini"
+          />
+          <span class="btn btn-ghost btn-square">
+            <i class="fa-solid fa-paperclip"></i>
+          </span>
+          <span class="btn btn-ghost btn-square">
+            <i class="fa-solid fa-paper-plane"></i>
+          </span>
+        </div>
+      </div>
+    </div>
+    <script src="./scripts/chatroom.js"></script>
+  </body>
+</html>
