@@ -5,7 +5,7 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "dev-index": "npx @tailwindcss/cli -i ./src/input.css -o ./dist/index.css --watch",
-    "dev-chatroom": "npx @tailwindcss/cli -i ./src/input.css -o ./dist/style.css --watch"
+    "dev-chatroom": "npx @tailwindcss/cli -i ./src/input.css -o ./dist/chatroom-style.css --watch"
   },
   "author": "",
   "license": "ISC",
