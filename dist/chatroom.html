@@ -46,39 +46,7 @@
       <!-- CHAT -->
       <div class="h-dvh basis-full flex flex-col">
         <!-- Chat Body -->
-        <div class="h-dvh basis-full overflow-y-auto pt-3">
-          <!-- AI response -->
-          <section class="px-20 pt-5">
-            <div class="response-container flex flex-row gap-2">
-              <span class="bg-black w-10 h-10 rounded-full text-center pt-1.5">
-                <i class="fa-solid fa-robot"></i>
-              </span>
-              <p
-                class="response-message max-w-80 bg-black px-8 py-2 rounded-3xl"
-              >
-                Lorem, ipsum dolor sit amet consectetur adipisicing elit.
-                Corrupti nesciunt doloremque, quod adipisci, consequatur magni
-                sed esse quidem alias ipsum quam perferendis ex dolor?
-                Accusantium deserunt iste labore quisquam at.
-              </p>
-            </div>
-          </section>
-          <!-- AI response === -->
-          <section class="px-20 pt-5">
-            <div class="response-container flex flex-row gap-2">
-              <span class="bg-black w-10 h-10 rounded-full text-center pt-1.5">
-                <i class="fa-solid fa-robot"></i>
-              </span>
-              <p
-                class="response-message max-w-80 bg-black px-8 py-2 rounded-3xl"
-              >
-                Lorem, ipsum dolor sit amet consectetur adipisicing elit.
-                Corrupti nesciunt doloremque, quod adipisci, consequatur magni
-                sed esse quidem alias ipsum quam perferendis ex dolor?
-                Accusantium deserunt iste labore quisquam at.
-              </p>
-            </div>
-          </section>
+        <div id="chatBody" class="h-dvh basis-full overflow-y-auto pt-3">
           <!-- AI response -->
           <section class="px-20 pt-5">
             <div class="response-container flex flex-row gap-2">
@@ -142,21 +110,23 @@
         <div class="flex px-20 pt-5 pb-20">
           <!-- Text Input -->
           <input
-            class="input w-full rounded-3xl px-5 mr-2"
+            id="userInput"
+            class="user-input input w-full rounded-3xl px-5 mr-2"
             type="textarea"
             name="user-input"
             id="user-input"
             placeholder="chat with gemini"
+            autocomplete="off"
           />
           <span class="btn btn-ghost btn-square">
             <i class="fa-solid fa-paperclip"></i>
           </span>
-          <span class="btn btn-ghost btn-square">
+          <span id="sendBtn" class="btn btn-ghost btn-square">
             <i class="fa-solid fa-paper-plane"></i>
           </span>
         </div>
       </div>
     </div>
-    <script src="./scripts/chatroom.js"></script>
+    <script type="module" src="./scripts/chatroom.js"></script>
   </body>
 </html>

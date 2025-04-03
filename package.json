@@ -7,10 +7,13 @@
     "dev-index": "npx @tailwindcss/cli -i ./src/input.css -o ./dist/index.css --watch",
     "dev-chatroom": "npx @tailwindcss/cli -i ./src/input.css -o ./dist/chatroom-style.css --watch"
   },
+  "type": "module",
   "author": "",
   "license": "ISC",
   "description": "",
   "dependencies": {
+    "@google/genai": "^0.7.0",
+    "@google/generative-ai": "^0.24.0",
     "@tailwindcss/cli": "^4.0.17",
     "daisyui": "^5.0.9",
     "tailwindcss": "^4.0.17"
