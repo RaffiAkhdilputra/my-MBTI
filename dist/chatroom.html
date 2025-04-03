@@ -1,12 +1,8 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <meta
-      name="viewport"
-      content="wid
-  th=device-width, initial-scale=1.0"
-    />
+    <meta name="viewport" content="width=device-width", initial-scale=1.0" />
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
@@ -20,13 +16,14 @@
       crossorigin="anonymous"
       referrerpolicy="no-referrer"
     ></script>
+    <script src="/app.js"></script>
     <link href="chatroom-style.css" rel="stylesheet" />
     <title>my MBTI</title>
   </head>
   <body>
     <span
       id="nav-btn"
-      class="absolute top-5 left-5 text-3xl btn btn-ghost py-5"
+      class="absolute top-5 left-5 text-3xl btn btn-ghost py-5 z-10"
     >
       <i class="fa-solid fa-bars"></i>
     </span>
@@ -34,32 +31,32 @@
     <!-- Main Body -->
     <div class="flex flex-row">
       <!-- SIDEBAR -->
-      <div class="sidebar h-dvh min-w-70">
+      <div class="sidebar bg-base-300 h-dvh min-w-70">
         <div class="mt-20 px-5">
-          <button class="btn btn-soft w-full">
+          <button class="btn btn-soft btn-info w-full">
             <span><i class="fa-solid fa-message"></i></span>New Chat!
           </button>
-          <h1 class="mt-2s">Recent</h1>
+          <h1 class="mt-2">Recent</h1>
         </div>
       </div>
 
       <!-- CHAT -->
-      <div class="h-dvh basis-full flex flex-col">
+      <div class="h-dvh basis-full flex flex-col pt-7 px-70">
         <!-- Chat Body -->
         <div id="chatBody" class="h-dvh basis-full overflow-y-auto pt-3">
           <!-- AI response -->
           <section class="px-20 pt-5">
             <div class="response-container flex flex-row gap-2">
-              <span class="bg-black w-10 h-10 rounded-full text-center pt-1.5">
+              <span
+                class="bg-primary w-10 h-10 rounded-full text-center pt-1.5"
+              >
                 <i class="fa-solid fa-robot"></i>
               </span>
               <p
-                class="response-message max-w-80 bg-black px-8 py-2 rounded-3xl"
+                class="response-message max-w-80 bg-primary px-8 py-2 rounded-3xl"
               >
-                Lorem, ipsum dolor sit amet consectetur adipisicing elit.
-                Corrupti nesciunt doloremque, quod adipisci, consequatur magni
-                sed esse quidem alias ipsum quam perferendis ex dolor?
-                Accusantium deserunt iste labore quisquam at.
+                Hi!, aku Kinoy siap membantu kamu untuk mengetahui MBTI mu. Klik
+                "Mulai Sekarang" untuk memulai.
               </p>
             </div>
           </section>
@@ -67,29 +64,29 @@
           <!-- USER -->
           <section class="pr-16 pt-5 justify-items-end items-end">
             <div
-              class="user-input-container max-w-80 bg-black px-8 py-2 rounded-3xl"
+              class="user-input-container max-w-80 bg-success px-8 py-2 rounded-3xl"
             >
-              <p class="user-input-message">
-                Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-                Soluta, adipisci!
-              </p>
+              <p class="user-input-message">CONTOH CHAT DARI USER</p>
             </div>
           </section>
 
           <!-- MBTI Question -->
           <section class="px-20 pt-5">
             <div class="response-container flex flex-row gap-2">
-              <span class="bg-black w-10 h-10 rounded-full text-center pt-1.5">
+              <span
+                class="bg-primary w-10 h-10 rounded-full text-center pt-1.5"
+              >
                 <i class="fa-solid fa-robot"></i>
               </span>
               <div class="flex flex-col gap-2">
                 <p
-                  class="response-message max-w-80 bg-black px-8 py-2 rounded-3xl"
+                  class="response-message max-w-80 bg-primary px-8 py-2 rounded-3xl"
                 >
-                  Lorem, ipsum dolor sit amet consectetur adipisicing elit.
-                  Corrupti nesciunt doloremque, quod adipisci, consequatur magni
-                  sed esse quidem alias ipsum quam perferendis ex dolor?
-                  Accusantium deserunt iste labore quisquam at.
+                  PERTANYAAN MBTI. Lorem, ipsum dolor sit amet consectetur
+                  adipisicing elit. Rerum dolor vitae quis. Dolorum, quae.
+                  Laboriosam consequatur quia vitae nemo dolores, reprehenderit
+                  corporis expedita, consequuntur quam commodi magni voluptatum
+                  deleniti quas!
                 </p>
               </div>
             </div>
@@ -98,7 +95,9 @@
           <!-- Loading -->
           <section class="px-20 pt-5">
             <div class="response-container flex flex-row gap-2">
-              <span class="bg-black w-10 h-10 rounded-full text-center pt-1.5">
+              <span
+                class="bg-primary w-10 h-10 rounded-full text-center pt-1.5"
+              >
                 <i class="fa-solid fa-robot"></i>
               </span>
               <span class="loading loading-ring loading-xl"></span>
@@ -107,23 +106,79 @@
         </div>
 
         <!-- User Input  -->
-        <div class="flex px-20 pt-5 pb-20">
+        <div id="inputArea" class="flex flex-wrap px-20 pt-10 pb-20">
+          <!-- Start Button -->
+          <button id="startBtn" class="btn btn-soft btn-warning w-full">
+            <span><i class="fa-solid fa-play"></i></span>Mulai Sekarang!
+          </button>
+
           <!-- Text Input -->
           <input
             id="userInput"
-            class="user-input input w-full rounded-3xl px-5 mr-2"
+            class="user-input input w-full rounded-3xl px-5 mr-2 input-component-textarea hidden"
             type="textarea"
             name="user-input"
             id="user-input"
             placeholder="chat with gemini"
             autocomplete="off"
           />
-          <span class="btn btn-ghost btn-square">
-            <i class="fa-solid fa-paperclip"></i>
-          </span>
-          <span id="sendBtn" class="btn btn-ghost btn-square">
+          <span
+            id="sendBtn"
+            class="btn btn-ghost btn-square input-component-button hidden"
+          >
             <i class="fa-solid fa-paper-plane"></i>
           </span>
+          <div class="input-component-radio flex flex-row w-full hidden">
+            <h1>Setuju</h1>
+            <div
+              class="radio-container flex justify-evenly py-5 rounded-3xl w-dvh"
+            >
+              <input
+                class="radio"
+                type="radio"
+                name="radio-btn"
+                id="radio-value-7"
+              />
+              <input
+                class="radio"
+                type="radio"
+                name="radio-btn"
+                id="radio-value-6"
+              />
+              <input
+                class="radio"
+                type="radio"
+                name="radio-btn"
+                id="radio-value-5"
+              />
+              <input
+                class="radio"
+                type="radio"
+                name="radio-btn"
+                id="radio-value-4"
+              />
+              <input
+                class="radio"
+                type="radio"
+                name="radio-btn"
+                id="radio-value-3"
+              />
+              <input
+                class="radio"
+                type="radio"
+                name="radio-btn"
+                id="radio-value-2"
+              />
+              <input
+                class="radio"
+                type="radio"
+                name="radio-btn"
+                id="radio-value-1"
+              />
+            </div>
+            <h1>Tidak Setuju</h1>
+          </div>
+          <!-- <button class="btn btn-soft btn-info w-full">Next</button> -->
         </div>
       </div>
     </div>
