@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Document</title>
+        <link rel="stylesheet" href="index.css" />
+    </head>
+    <body>
+        <!-- Carousel -->
+        <section class="pt-36 pb-36">
+            <div class="container w-full" x-data="mbtiSlide" x-init="loop">
+                <template x-for="slide in slides" :key="slide.id">
+                    <div x-show="activeSlide === slide.id" class="mx-16 h-150 flex" :style="`background-image: url(${slide.img})`">
+                        <h2 class="w-full pt-10 font-bold text-6xl text-center" x-text="slide.title"></h2>
+                    </div>
+                </template>
+
+                <div class="absolute w-full flex items-center justify-center px-16">
+                    <template x-for="slide in slides" :key="slide.id">
+                        <button
+                            class="flex-1 w-4 h-2 mt-4 mx-2 mb-2 rounded-full overflow-hidden transition-colors duration-200 ease-in-out hover:bg-slate-400"
+                            :class="{
+                            'bg-blue-400' : activeSlide === slide.id,
+                            'bg-slate-200' : activeSlide !== slide.id,
+                        }"
+                            x-on:click="activeSlide = slide.id"
+                        ></button>
+                    </template>
+                </div>
+            </div>
+        </section>
+
+        <!-- MBTI Type -->
+        <section class="mx-16">
+            <div class="grid grid-cols-4 gap-x-4 gap-y-12">
+                <div class="bg-slate-400 aspect-video w-full rounded-lg relative pt-10 px-6">
+                    <div class="w-16 h-16 bg-slate-200 rounded-full flex absolute -top-8 left-1/2 -translate-x-1/2">
+                        <img src="images/mbti-logo.png" alt="" class="h-12 m-auto" />
+                    </div>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Et, rerum nobis tempora ea ipsa quisquam delectus minus ipsum ex, at reprehenderit sapiente. Assumenda, nesciunt dicta.</p>
+                </div>
+                <div class="bg-slate-400 aspect-video w-full rounded-lg relative pt-10 px-6">
+                    <div class="w-16 h-16 bg-slate-200 rounded-full flex absolute -top-8 left-1/2 -translate-x-1/2">
+                        <img src="images/mbti-logo.png" alt="" class="h-12 m-auto" />
+                    </div>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Et, rerum nobis tempora ea ipsa quisquam delectus minus ipsum ex, at reprehenderit sapiente. Assumenda, nesciunt dicta.</p>
+                </div>
+                <div class="bg-slate-400 aspect-video w-full rounded-lg relative pt-10 px-6">
+                    <div class="w-16 h-16 bg-slate-200 rounded-full flex absolute -top-8 left-1/2 -translate-x-1/2">
+                        <img src="images/mbti-logo.png" alt="" class="h-12 m-auto" />
+                    </div>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Et, rerum nobis tempora ea ipsa quisquam delectus minus ipsum ex, at reprehenderit sapiente. Assumenda, nesciunt dicta.</p>
+                </div>
+                <div class="bg-slate-400 aspect-video w-full rounded-lg relative pt-10 px-6">
+                    <div class="w-16 h-16 bg-slate-200 rounded-full flex absolute -top-8 left-1/2 -translate-x-1/2">
+                        <img src="images/mbti-logo.png" alt="" class="h-12 m-auto" />
+                    </div>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Et, rerum nobis tempora ea ipsa quisquam delectus minus ipsum ex, at reprehenderit sapiente. Assumenda, nesciunt dicta.</p>
+                </div>
+                <div class="bg-slate-400 aspect-video w-full rounded-lg relative pt-10 px-6">
+                    <div class="w-16 h-16 bg-slate-200 rounded-full flex absolute -top-8 left-1/2 -translate-x-1/2">
+                        <img src="images/mbti-logo.png" alt="" class="h-12 m-auto" />
+                    </div>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Et, rerum nobis tempora ea ipsa quisquam delectus minus ipsum ex, at reprehenderit sapiente. Assumenda, nesciunt dicta.</p>
+                </div>
+                <div class="bg-slate-400 aspect-video w-full rounded-lg relative pt-10 px-6">
+                    <div class="w-16 h-16 bg-slate-200 rounded-full flex absolute -top-8 left-1/2 -translate-x-1/2">
+                        <img src="images/mbti-logo.png" alt="" class="h-12 m-auto" />
+                    </div>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Et, rerum nobis tempora ea ipsa quisquam delectus minus ipsum ex, at reprehenderit sapiente. Assumenda, nesciunt dicta.</p>
+                </div>
+                <div class="bg-slate-400 aspect-video w-full rounded-lg relative pt-10 px-6">
+                    <div class="w-16 h-16 bg-slate-200 rounded-full flex absolute -top-8 left-1/2 -translate-x-1/2">
+                        <img src="images/mbti-logo.png" alt="" class="h-12 m-auto" />
+                    </div>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Et, rerum nobis tempora ea ipsa quisquam delectus minus ipsum ex, at reprehenderit sapiente. Assumenda, nesciunt dicta.</p>
+                </div>
+                <div class="bg-slate-400 aspect-video w-full rounded-lg relative pt-10 px-6">
+                    <div class="w-16 h-16 bg-slate-200 rounded-full flex absolute -top-8 left-1/2 -translate-x-1/2">
+                        <img src="images/mbti-logo.png" alt="" class="h-12 m-auto" />
+                    </div>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Et, rerum nobis tempora ea ipsa quisquam delectus minus ipsum ex, at reprehenderit sapiente. Assumenda, nesciunt dicta.</p>
+                </div>
+                <div class="bg-slate-400 aspect-video w-full rounded-lg relative pt-10 px-6">
+                    <div class="w-16 h-16 bg-slate-200 rounded-full flex absolute -top-8 left-1/2 -translate-x-1/2">
+                        <img src="images/mbti-logo.png" alt="" class="h-12 m-auto" />
+                    </div>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Et, rerum nobis tempora ea ipsa quisquam delectus minus ipsum ex, at reprehenderit sapiente. Assumenda, nesciunt dicta.</p>
+                </div>
+                <div class="bg-slate-400 aspect-video w-full rounded-lg relative pt-10 px-6">
+                    <div class="w-16 h-16 bg-slate-200 rounded-full flex absolute -top-8 left-1/2 -translate-x-1/2">
+                        <img src="images/mbti-logo.png" alt="" class="h-12 m-auto" />
+                    </div>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Et, rerum nobis tempora ea ipsa quisquam delectus minus ipsum ex, at reprehenderit sapiente. Assumenda, nesciunt dicta.</p>
+                </div>
+                <div class="bg-slate-400 aspect-video w-full rounded-lg relative pt-10 px-6">
+                    <div class="w-16 h-16 bg-slate-200 rounded-full flex absolute -top-8 left-1/2 -translate-x-1/2">
+                        <img src="images/mbti-logo.png" alt="" class="h-12 m-auto" />
+                    </div>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Et, rerum nobis tempora ea ipsa quisquam delectus minus ipsum ex, at reprehenderit sapiente. Assumenda, nesciunt dicta.</p>
+                </div>
+                <div class="bg-slate-400 aspect-video w-full rounded-lg relative pt-10 px-6">
+                    <div class="w-16 h-16 bg-slate-200 rounded-full flex absolute -top-8 left-1/2 -translate-x-1/2">
+                        <img src="images/mbti-logo.png" alt="" class="h-12 m-auto" />
+                    </div>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Et, rerum nobis tempora ea ipsa quisquam delectus minus ipsum ex, at reprehenderit sapiente. Assumenda, nesciunt dicta.</p>
+                </div>
+                <div class="bg-slate-400 aspect-video w-full rounded-lg relative pt-10 px-6">
+                    <div class="w-16 h-16 bg-slate-200 rounded-full flex absolute -top-8 left-1/2 -translate-x-1/2">
+                        <img src="images/mbti-logo.png" alt="" class="h-12 m-auto" />
+                    </div>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Et, rerum nobis tempora ea ipsa quisquam delectus minus ipsum ex, at reprehenderit sapiente. Assumenda, nesciunt dicta.</p>
+                </div>
+                <div class="bg-slate-400 aspect-video w-full rounded-lg relative pt-10 px-6">
+                    <div class="w-16 h-16 bg-slate-200 rounded-full flex absolute -top-8 left-1/2 -translate-x-1/2">
+                        <img src="images/mbti-logo.png" alt="" class="h-12 m-auto" />
+                    </div>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Et, rerum nobis tempora ea ipsa quisquam delectus minus ipsum ex, at reprehenderit sapiente. Assumenda, nesciunt dicta.</p>
+                </div>
+                <div class="bg-slate-400 aspect-video w-full rounded-lg relative pt-10 px-6">
+                    <div class="w-16 h-16 bg-slate-200 rounded-full flex absolute -top-8 left-1/2 -translate-x-1/2">
+                        <img src="images/mbti-logo.png" alt="" class="h-12 m-auto" />
+                    </div>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Et, rerum nobis tempora ea ipsa quisquam delectus minus ipsum ex, at reprehenderit sapiente. Assumenda, nesciunt dicta.</p>
+                </div>
+                <div class="bg-slate-400 aspect-video w-full rounded-lg relative pt-10 px-6">
+                    <div class="w-16 h-16 bg-slate-200 rounded-full flex absolute -top-8 left-1/2 -translate-x-1/2">
+                        <img src="images/mbti-logo.png" alt="" class="h-12 m-auto" />
+                    </div>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Et, rerum nobis tempora ea ipsa quisquam delectus minus ipsum ex, at reprehenderit sapiente. Assumenda, nesciunt dicta.</p>
+                </div>
+            </div>
+        </section>
+
+        <div class="mb-96"></div>
+
+        <script>
+            document.addEventListener("alpine:init", () => {
+                Alpine.data("mbtiSlide", () => ({
+                    activeSlide: 1,
+                    slides: [
+                        { id: 1, title: "ANALYSTS", img: "images/analysts.jpg" },
+                        { id: 2, title: "DIPLOMATS", img: "images/diplomats.jpg" },
+                        { id: 3, title: "SENTINELS", img: "images/sentinels.jpg" },
+                        { id: 4, title: "EXPLORERS", img: "images/explorers.jpg" },
+                    ],
+                    loop() {
+                        setInterval(() => {
+                            this.activeSlide = this.activeSlide === 4 ? 1 : this.activeSlide + 1;
+                        }, 3000);
+                    },
+                }));
+            });
+        </script>
+
+        <!-- AlpineJS -->
+        <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
+    </body>
+</html>
