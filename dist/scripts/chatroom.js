@@ -82,7 +82,6 @@ const fetchGeminiResponse = async (prompt) => {
     }
 };
 
-
 const generateResponse = async (prompt) => {
     if (!chatBody) return;
 
@@ -128,7 +127,10 @@ const startBtn = document.getElementById("startBtn");
 
 startBtn.addEventListener("click", () => {
     startBtn.classList.add("hidden");
-    inputComponentRadio.classList.remove("hidden");    
+    inputComponentRadio.classList.add( "flex", "flex-row", "w-full");
+    inputComponentRadio.classList.remove("hidden");
+
+    quiz(); // Mulai quiz
 
     // Sementara Pake timer tapi nanti bakal diapus kalo quiz MBTI nya udh selesai
     setTimeout(() => { 
@@ -146,3 +148,17 @@ userInput.addEventListener("keydown", (event) => {
         generateResponse(message);
     }
 });
+
+// === QUIZ ===
+const quiz = () => {
+    fetch("./scripts/question.json")
+        .then(response => response.json())
+        .then(data => {
+            const questions = data.questions;
+            console.log(questions);
+            // Lanjutkan gunakan 'questions' di sini
+            let userAnswer = [];
+            let index = 0;
+        })
+        .catch(error => console.error("Gagal memuat data:", error));
+}
