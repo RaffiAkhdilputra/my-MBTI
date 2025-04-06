@@ -124,17 +124,20 @@ const inputComponentText = document.querySelector(".input-component-textarea");
 const inputComponentBtn = document.querySelector(".input-component-button");
 const inputComponentRadio = document.querySelector(".input-component-radio");
 const startBtn = document.getElementById("startBtn");
+const nextBtn = document.querySelector(".next-btn");
 
 startBtn.addEventListener("click", () => {
     startBtn.classList.add("hidden");
     inputComponentRadio.classList.add( "flex", "flex-row", "w-full");
     inputComponentRadio.classList.remove("hidden");
-
+    nextBtn.classList.remove("hidden");
+    
     quiz(); // Mulai quiz
-
+    
     // Sementara Pake timer tapi nanti bakal diapus kalo quiz MBTI nya udh selesai
     setTimeout(() => { 
         inputComponentRadio.classList.add("hidden");  
+        nextBtn.classList.add("hidden");
         inputArea.classList.remove("flex-wrap");
         inputComponentText.classList.remove("hidden");
         inputComponentBtn.classList.remove("hidden");
@@ -159,6 +162,43 @@ const quiz = () => {
             // Lanjutkan gunakan 'questions' di sini
             let userAnswer = [];
             let index = 0;
+
+            const section = document.createElement("section");
+            section.classList.add("px-20", "pt-5");
+
+            const div = document.createElement("div");
+            div.classList.add("question-container", "flex", "flex-row", "gap-2");
+
+            const span = document.createElement("span");
+            span.classList.add("bg-primary", "w-10", "h-10", "rounded-full", "text-center", "flex", "items-center", "justify-center");
+            span.innerHTML = '<i class="fa-solid fa-robot"></i>';
+
+            const p = document.createElement("p");
+            p.classList.add("response-message", "max-w-80", "bg-primary", "px-8", "py-2", "rounded-3xl");
+            p.textContent = questions[index].question;
+
+            div.appendChild(span);
+            div.appendChild(p);
+            section.appendChild(div);
+            chatBody.appendChild(section);
+
+            nextBtn.addEventListener("click", () => {
+                if (index < questions.length - 1) {
+                    index++;
+                    questionText.textContent = questions[index].question;
+                }
+                else {
+                    inputComponentRadio.classList.add("hidden");
+                    inputComponentText.classList.remove("hidden");
+                    inputComponentBtn.classList.remove("hidden");
+
+                    // Hapus event listener untuk nextBtn setelah selesai
+                    nextBtn.removeEventListener("click", arguments.callee);
+                }
+            });
+
+
+
         })
         .catch(error => console.error("Gagal memuat data:", error));
 }
