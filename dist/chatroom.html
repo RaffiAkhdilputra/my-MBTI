@@ -18,7 +18,7 @@
     ></script>
     <script src="/app.js"></script>
     <link href="chatroom-style.css" rel="stylesheet" />
-    <title>my MBTI</title>
+    <title>myMBTI</title>
   </head>
   <body>
     <span
@@ -72,7 +72,7 @@
 
           <!-- MBTI Question -->
           <section class="px-20 pt-5">
-            <div class="response-container flex flex-row gap-2">
+            <div class="question-container flex flex-row gap-2">
               <span
                 class="bg-primary w-10 h-10 rounded-full text-center pt-1.5"
               >
@@ -82,11 +82,7 @@
                 <p
                   class="response-message max-w-80 bg-primary px-8 py-2 rounded-3xl"
                 >
-                  PERTANYAAN MBTI. Lorem, ipsum dolor sit amet consectetur
-                  adipisicing elit. Rerum dolor vitae quis. Dolorum, quae.
-                  Laboriosam consequatur quia vitae nemo dolores, reprehenderit
-                  corporis expedita, consequuntur quam commodi magni voluptatum
-                  deleniti quas!
+                  PERTANYAAN MBTI.
                 </p>
               </div>
             </div>
@@ -128,7 +124,7 @@
           >
             <i class="fa-solid fa-paper-plane"></i>
           </span>
-          <div class="input-component-radio flex flex-row w-full hidden">
+          <div class="input-component-radio hidden">
             <h1>Setuju</h1>
             <div
               class="radio-container flex justify-evenly py-5 rounded-3xl w-dvh"
@@ -178,7 +174,9 @@
             </div>
             <h1>Tidak Setuju</h1>
           </div>
-          <!-- <button class="btn btn-soft btn-info w-full">Next</button> -->
+          <button class="next-btn btn btn-soft btn-info w-full hidden">
+            Next
+          </button>
         </div>
       </div>
     </div>
