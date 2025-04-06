@@ -132,8 +132,16 @@ startBtn.addEventListener("click", () => {
     inputComponentRadio.classList.remove("hidden");
     nextBtn.classList.remove("hidden");
     
-    quiz(); // Mulai quiz
-    
+    // Start the quiz *setelah* data siap
+    loadQuestions().then(result => {
+        questions = result;
+        if (questions.length > 0) {
+            quiz();
+        } else {
+            console.error("No questions available.");
+        }
+    });
+
     // Sementara Pake timer tapi nanti bakal diapus kalo quiz MBTI nya udh selesai
     setTimeout(() => { 
         inputComponentRadio.classList.add("hidden");  
@@ -141,7 +149,7 @@ startBtn.addEventListener("click", () => {
         inputArea.classList.remove("flex-wrap");
         inputComponentText.classList.remove("hidden");
         inputComponentBtn.classList.remove("hidden");
-    }, 3000);
+    }, 10000); // 10 detik
 });
 
 userInput.addEventListener("keydown", (event) => {
@@ -153,16 +161,36 @@ userInput.addEventListener("keydown", (event) => {
 });
 
 // === QUIZ ===
-const quiz = () => {
-    fetch("./scripts/question.json")
+
+let userAnswer = [];
+let index = 0;
+let questions = [];
+
+const loadQuestions = () => {
+    return fetch("./scripts/question.json")
         .then(response => response.json())
         .then(data => {
-            const questions = data.questions;
-            console.log(questions);
-            // Lanjutkan gunakan 'questions' di sini
-            let userAnswer = [];
-            let index = 0;
+            return data.questions.map(question => {
+                return {
+                    q: question.q,
+                    dimension: question.dimension,
+                    side: question.side
+                };
+            });
+        })
+        .catch(error => {
+            console.error("Error loading questions:", error);
+            return [];
+        });
+};
 
+const quiz = () => {
+    try {
+        const question = questions[index]?.q;
+        const dimension = questions[index]?.dimension;
+        const side = questions[index]?.side;
+
+        if (question && dimension && side) {
             const section = document.createElement("section");
             section.classList.add("px-20", "pt-5");
 
@@ -175,30 +203,33 @@ const quiz = () => {
 
             const p = document.createElement("p");
             p.classList.add("response-message", "max-w-80", "bg-primary", "px-8", "py-2", "rounded-3xl");
-            p.textContent = questions[index].question;
+            p.textContent = question;
 
             div.appendChild(span);
             div.appendChild(p);
             section.appendChild(div);
             chatBody.appendChild(section);
 
-            nextBtn.addEventListener("click", () => {
+            nextBtn.onclick = () => {
                 if (index < questions.length - 1) {
                     index++;
-                    questionText.textContent = questions[index].question;
-                }
-                else {
+                    quiz();
+                    section.scrollIntoView({ behavior: "smooth" });
+
+                } else {
                     inputComponentRadio.classList.add("hidden");
                     inputComponentText.classList.remove("hidden");
                     inputComponentBtn.classList.remove("hidden");
 
-                    // Hapus event listener untuk nextBtn setelah selesai
-                    nextBtn.removeEventListener("click", arguments.callee);
+                    nextBtn.onclick = null; // hapus event handler
                 }
-            });
+            };
+        } else {
+            console.error("Invalid question format:", questions[index]);
+        }
+    } catch (error) {
+        console.error("Error loading question:", error);
+    }
+};
 
 
-
-        })
-        .catch(error => console.error("Gagal memuat data:", error));
-}
