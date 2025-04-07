@@ -111,8 +111,20 @@ const generateResponse = async (prompt) => {
     div.removeChild(loading);
     
     const p = document.createElement("p");
-    p.classList.add("response-message", "max-w-120", "bg-primary", "px-8", "py-2", "rounded-3xl");
-    p.textContent = responseText;
+    p.classList.add("response-message", "max-w-120", "bg-primary", "px-8", "py-2", "rounded-3xl", "whitespace-pre-wrap");
+    
+    const formattedText = responseText
+    .replace(/\*\*(.*?)\*\*/g, "<strong>$1</strong>") // **bold**
+    .replace(/\*(.*?)\*/g, "<em>$1</em>")             // *italic*
+    .replace(/\n\* (.*?)(?=\n|$)/g, "<li>$1</li>")     // ubah * ... jadi list
+    .replace(/\n/g, "<br>");                          // baris baru biasa jadi <br>
+
+    const finalText = formattedText.includes("<li>")
+    ? formattedText.replace(/(<li>.*<\/li>)/gs, "<ul class='list-disc list-inside'>$1</ul>")
+    : formattedText;
+
+    p.innerHTML = finalText;
+
     div.appendChild(p);
     
     section.scrollIntoView({ behavior: "smooth" });
@@ -141,15 +153,6 @@ startBtn.addEventListener("click", () => {
             console.error("No questions available.");
         }
     });
-
-    // Sementara Pake timer tapi nanti bakal diapus kalo quiz MBTI nya udh selesai
-    setTimeout(() => { 
-        inputComponentRadio.classList.add("hidden");  
-        nextBtn.classList.add("hidden");
-        inputArea.classList.remove("flex-wrap");
-        inputComponentText.classList.remove("hidden");
-        inputComponentBtn.classList.remove("hidden");
-    }, 10000); // 10 detik
 });
 
 userInput.addEventListener("keydown", (event) => {
@@ -161,7 +164,6 @@ userInput.addEventListener("keydown", (event) => {
 });
 
 // === QUIZ ===
-
 let userAnswer = [];
 let index = 0;
 let questions = [];
@@ -211,19 +213,47 @@ const quiz = () => {
             chatBody.appendChild(section);
 
             nextBtn.onclick = () => {
+                const selected = document.querySelector('input[name="answer"]:checked');
+                
+                if (!selected) {
+                    alert("Silakan pilih salah satu jawaban sebelum lanjut.");
+                    return;
+                }
+                
+                // Simpan jawaban user
+                userAnswer.push(parseInt(selected.value));
+
+                const _ = [ "Sangat Tidak Setuju", "Tidak Setuju", "Kurang Tidak Setuju","Netral","Kurang Setuju", "Setuju", "Sangat Setuju" ];
+                
+                sendMessage(_[selected.value - 1]);
+
+                console.log("Jawaban user:", selected.value);
+                console.log("Index saat ini:", index);
+            
+                selected.checked = false;
+            
+                // Lanjut ke pertanyaan berikutnya
                 if (index < questions.length - 1) {
                     index++;
                     quiz();
                     section.scrollIntoView({ behavior: "smooth" });
-
                 } else {
+                    
+                    inputArea.classList.remove("flex-wrap");
                     inputComponentRadio.classList.add("hidden");
                     inputComponentText.classList.remove("hidden");
                     inputComponentBtn.classList.remove("hidden");
+                    
+                    nextBtn.onclick = null;
+                    nextBtn.classList.add("hidden");
 
-                    nextBtn.onclick = null; // hapus event handler
+                    console.log("User Answer:", userAnswer);
+        
+                    const { result, type } = analyzeMBTI(userAnswer, questions);
+                    console.log("Hasil MBTI:", type);
                 }
             };
+            
         } else {
             console.error("Invalid question format:", questions[index]);
         }
@@ -232,4 +262,42 @@ const quiz = () => {
     }
 };
 
+const analyzeMBTI = (answers, questions) => {
+    const result = {
+        EI: { E: 0, I: 0 },
+        SN: { S: 0, N: 0 },
+        TF: { T: 0, F: 0 },
+        JP: { J: 0, P: 0 }
+    };
 
+    answers.forEach((answer, idx) => {
+        const { dimension, side } = questions[idx];
+
+        if (answer >= 5) {
+            result[dimension][side]++;
+        } else if (answer <= 3) {
+            // sisi lawan
+            const opposite = getOppositeSide(dimension, side);
+            result[dimension][opposite]++;
+        }
+        // jika 4 (netral), tidak menambah skor
+    });
+
+    const finalType = 
+        (result.EI.E >= result.EI.I ? 'E' : 'I') +
+        (result.SN.S >= result.SN.N ? 'S' : 'N') +
+        (result.TF.T >= result.TF.F ? 'T' : 'F') +
+        (result.JP.J >= result.JP.P ? 'J' : 'P');
+
+    return { result, type: finalType };
+};
+
+const getOppositeSide = (dimension, side) => {
+    const opposites = {
+        EI: { E: 'I', I: 'E' },
+        SN: { S: 'N', N: 'S' },
+        TF: { T: 'F', F: 'T' },
+        JP: { J: 'P', P: 'J' }
+    };
+    return opposites[dimension][side];
+};
