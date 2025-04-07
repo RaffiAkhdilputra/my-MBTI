@@ -92,7 +92,7 @@ const generateResponse = async (prompt) => {
     div.classList.add("response-container", "flex", "flex-row", "gap-2");
 
     const span = document.createElement("span");
-    span.classList.add("bg-primary", "w-10", "h-10", "rounded-full", "text-center", "flex", "items-center", "justify-center");
+    span.classList.add("bg-primary-content", "w-10", "h-10", "rounded-full", "text-center", "flex", "items-center", "justify-center");
     span.innerHTML = '<i class="fa-solid fa-robot"></i>';
 
     const loading = document.createElement("span");
@@ -111,7 +111,7 @@ const generateResponse = async (prompt) => {
     div.removeChild(loading);
     
     const p = document.createElement("p");
-    p.classList.add("response-message", "max-w-120", "bg-primary", "px-8", "py-2", "rounded-3xl", "whitespace-pre-wrap");
+    p.classList.add("response-message", "max-w-120", "bg-primary-content", "px-8", "py-2", "rounded-3xl", "whitespace-pre-wrap");
     
     const formattedText = responseText
     .replace(/\*\*(.*?)\*\*/g, "<strong>$1</strong>") // **bold**
@@ -144,6 +144,11 @@ startBtn.addEventListener("click", () => {
     inputComponentRadio.classList.remove("hidden");
     nextBtn.classList.remove("hidden");
     
+    const divider = document.createElement("span");
+    divider.classList.add("divider", "mt-10");
+    divider.innerHTML = '<i class="fa-solid fa-circle-exclamation"></i> <strong>Quiz Dimulai</strong> <i class="fa-solid fa-circle-exclamation"></i>';
+    chatBody.appendChild(divider);
+
     // Start the quiz *setelah* data siap
     loadQuestions().then(result => {
         questions = result;
@@ -200,11 +205,11 @@ const quiz = () => {
             div.classList.add("question-container", "flex", "flex-row", "gap-2");
 
             const span = document.createElement("span");
-            span.classList.add("bg-primary", "w-10", "h-10", "rounded-full", "text-center", "flex", "items-center", "justify-center");
+            span.classList.add("bg-primary-content", "w-10", "h-10", "rounded-full", "text-center", "flex", "items-center", "justify-center");
             span.innerHTML = '<i class="fa-solid fa-robot"></i>';
 
             const p = document.createElement("p");
-            p.classList.add("response-message", "max-w-120", "bg-primary", "px-8", "py-2", "rounded-3xl");
+            p.classList.add("response-message", "max-w-120", "bg-primary-content", "px-8", "py-2", "rounded-3xl");
             p.textContent = question;
 
             div.appendChild(span);
@@ -227,7 +232,7 @@ const quiz = () => {
                 
                 sendMessage(_[selected.value - 1]);
 
-                console.log("Jawaban user:", selected.value);
+                // console.log("Jawaban user:", selected.value);
                 console.log("Index saat ini:", index);
             
                 selected.checked = false;
@@ -238,6 +243,10 @@ const quiz = () => {
                     quiz();
                     section.scrollIntoView({ behavior: "smooth" });
                 } else {
+                    const divider = document.createElement("span");
+                    divider.classList.add("divider", "mt-10");
+                    divider.innerHTML = '<i class="fa-solid fa-circle-exclamation"></i> <strong>Quiz Selesai</strong> <i class="fa-solid fa-circle-exclamation"></i>';
+                    chatBody.appendChild(divider);
                     
                     inputArea.classList.remove("flex-wrap");
                     inputComponentRadio.classList.add("hidden");
@@ -247,7 +256,7 @@ const quiz = () => {
                     nextBtn.onclick = null;
                     nextBtn.classList.add("hidden");
 
-                    console.log("User Answer:", userAnswer);
+                    // console.log("User Answer:", userAnswer);
         
                     const { result, type } = analyzeMBTI(userAnswer, questions);
                     showResult({ result, type });
@@ -303,19 +312,27 @@ const getOppositeSide = (dimension, side) => {
 
 const promptHasil = "jadilah seorang psikolog yang memberikan hasil tes MBTI {hasil}. berikan penjelasan tentang hasil tersebut, serta rekomendasi untuk pengembangan diri dan pekerjaan yang cocok berdasarkan hasil tes MBTI tersebut. rules: gunakan Saya dan Kamu, dan jangan berikan sambutan seperti \"Baik...\"dari prompt";
 
-const showResult = (result) => {
+const showResult = async (result) => {
     const section1 = document.createElement("section");
     section1.classList.add("px-20", "pt-5");
 
     const div1 = document.createElement("div");
     div1.classList.add("response-container", "flex", "flex-row", "gap-2");
 
+    const loading = document.createElement("span");
+    loading.classList.add("loading", "loading-ring", "loading-xl");
+    div1.appendChild(loading);
+
+    await new Promise((resolve) => setTimeout(resolve, 1000)); // efek loading 1 detik
+
+    div1.removeChild(loading);
+
     const span1 = document.createElement("span");
-    span1.classList.add("bg-primary", "w-10", "h-10", "rounded-full", "text-center", "pt-1.5");
+    span1.classList.add("bg-primary-content", "w-10", "h-10", "rounded-full", "text-center", "pt-1.5");
     span1.innerHTML = '<i class="fa-solid fa-robot"></i>';
 
     const p1 = document.createElement("p");
-    p1.classList.add("response-message", "max-w-120", "bg-primary", "px-8", "py-2", "rounded-3xl");
+    p1.classList.add("response-message", "max-w-120", "bg-primary-content", "px-8", "py-2", "rounded-3xl");
     p1.innerHTML = `<img class="w-full" src="./images/banner/${result.type}.svg" alt="" />`;
     
     div1.appendChild(span1);
@@ -331,11 +348,11 @@ const showResult = (result) => {
     div2.classList.add("response-container", "flex", "flex-row", "gap-2");
     
     const span2 = document.createElement("span");
-    span2.classList.add("bg-primary", "w-10", "h-10", "rounded-full", "text-center", "pt-1.5");
+    span2.classList.add("bg-primary-content", "w-10", "h-10", "rounded-full", "text-center", "pt-1.5");
     span2.innerHTML = '<i class="fa-solid fa-robot"></i>';
 
     const p2 = document.createElement("p");
-    p2.classList.add("response-message", "max-w-80", "bg-primary", "px-8", "py-2", "rounded-3xl");
+    p2.classList.add("response-message", "max-w-80", "bg-primary-content", "px-8", "py-2", "rounded-3xl");
     p2.innerHTML = `Hasil Tes MBTI Kamu adalah <strong>${result.type}</strong>.`;
 
     div2.appendChild(span2);
@@ -344,7 +361,8 @@ const showResult = (result) => {
 
     chatBody.appendChild(section2);
 
-    section2.scrollIntoView({ behavior: "smooth" });
+    p1.scrollIntoView({ behavior: "smooth" });
+    p2.scrollIntoView({ behavior: "smooth" });
     
     generateResponse(promptHasil.replace("{hasil}", result.type))
 };
