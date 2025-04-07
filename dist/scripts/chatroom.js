@@ -250,7 +250,7 @@ const quiz = () => {
                     console.log("User Answer:", userAnswer);
         
                     const { result, type } = analyzeMBTI(userAnswer, questions);
-                    console.log("Hasil MBTI:", type);
+                    showResult({ result, type });
                 }
             };
             
@@ -276,7 +276,6 @@ const analyzeMBTI = (answers, questions) => {
         if (answer >= 5) {
             result[dimension][side]++;
         } else if (answer <= 3) {
-            // sisi lawan
             const opposite = getOppositeSide(dimension, side);
             result[dimension][opposite]++;
         }
@@ -300,4 +299,31 @@ const getOppositeSide = (dimension, side) => {
         JP: { J: 'P', P: 'J' }
     };
     return opposites[dimension][side];
+};
+
+const showResult = (result) => {
+    const section = document.createElement("section");
+    section.classList.add("px-20", "pt-5");
+
+    const div = document.createElement("div");
+    div.classList.add("response-container", "flex", "flex-row", "gap-2");
+
+    const span = document.createElement("span");
+    span.classList.add("bg-primary", "w-10", "h-10", "rounded-full", "text-center", "pt-1.5");
+    span.innerHTML = '<i class="fa-solid fa-robot"></i>';
+
+    const p1 = document.createElement("p");
+    p1.classList.add("response-message", "max-w-80", "bg-primary", "px-8", "py-2", "rounded-3xl");
+    p1.innerHTML = `<img class="w-full" src="./images/${result.type}..svg" alt="" />`;
+
+    const p2 = document.createElement("p");
+    p2.classList.add("response-message", "max-w-80", "bg-primary", "px-8", "py-2", "rounded-3xl");
+    p2.innerHTML = `Hasil Tes MBTI Anda adalah <strong>${result.type}</strong>.`;
+
+    div.appendChild(span);
+    div.appendChild(p1);
+    div.appendChild(p2);
+    section.appendChild(div);
+
+    chatBody.appendChild(section);
 };

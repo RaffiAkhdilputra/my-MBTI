@@ -6,16 +6,45 @@
       "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
     --font-mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono",
       "Courier New", monospace;
+    --color-red-100: oklch(0.936 0.032 17.717);
+    --color-red-200: oklch(0.885 0.062 18.334);
+    --color-red-300: oklch(0.808 0.114 19.571);
+    --color-red-400: oklch(0.704 0.191 22.216);
     --color-red-500: oklch(0.637 0.237 25.331);
+    --color-red-600: oklch(0.577 0.245 27.325);
+    --color-red-700: oklch(0.505 0.213 27.518);
+    --color-orange-300: oklch(0.837 0.128 66.29);
+    --color-orange-500: oklch(0.705 0.213 47.604);
     --color-amber-50: oklch(0.987 0.022 95.277);
     --color-amber-400: oklch(0.828 0.189 84.429);
     --color-amber-500: oklch(0.769 0.188 70.08);
+    --color-yellow-200: oklch(0.945 0.129 101.54);
+    --color-yellow-400: oklch(0.852 0.199 91.936);
+    --color-green-100: oklch(0.962 0.044 156.743);
+    --color-green-200: oklch(0.925 0.084 155.995);
+    --color-green-300: oklch(0.871 0.15 154.449);
+    --color-green-400: oklch(0.792 0.209 151.711);
+    --color-green-500: oklch(0.723 0.219 149.579);
+    --color-green-700: oklch(0.527 0.154 150.069);
+    --color-cyan-300: oklch(0.865 0.127 207.078);
+    --color-cyan-500: oklch(0.715 0.143 215.221);
+    --color-blue-50: oklch(0.97 0.014 254.604);
+    --color-blue-100: oklch(0.932 0.032 255.585);
+    --color-blue-200: oklch(0.882 0.059 254.128);
+    --color-blue-300: oklch(0.809 0.105 251.813);
     --color-blue-400: oklch(0.707 0.165 254.624);
+    --color-blue-500: oklch(0.623 0.214 259.815);
+    --color-blue-700: oklch(0.488 0.243 264.376);
+    --color-blue-900: oklch(0.379 0.146 265.522);
     --color-slate-200: oklch(0.929 0.013 255.508);
     --color-slate-400: oklch(0.704 0.04 256.788);
+    --color-gray-100: oklch(0.967 0.003 264.542);
+    --color-gray-200: oklch(0.928 0.006 264.531);
+    --color-gray-300: oklch(0.872 0.01 258.338);
     --color-gray-500: oklch(0.551 0.027 264.364);
     --color-gray-950: oklch(0.13 0.028 261.692);
     --color-black: #000;
+    --color-white: #fff;
     --spacing: 0.25rem;
     --container-6xl: 72rem;
     --text-xs: 0.75rem;
@@ -5367,6 +5396,9 @@
   .h-dvh {
     height: 100dvh;
   }
+  .h-full {
+    height: 100%;
+  }
   .h-screen {
     height: 100vh;
   }
@@ -6631,6 +6663,81 @@
     color: var(--color-warning-content);
     --alert-color: var(--color-warning);
   }
+  .border-blue-100 {
+    border-color: var(--color-blue-100);
+  }
+  .border-blue-200 {
+    border-color: var(--color-blue-200);
+  }
+  .border-blue-300 {
+    border-color: var(--color-blue-300);
+  }
+  .border-blue-500 {
+    border-color: var(--color-blue-500);
+  }
+  .border-blue-700 {
+    border-color: var(--color-blue-700);
+  }
+  .border-cyan-300 {
+    border-color: var(--color-cyan-300);
+  }
+  .border-cyan-500 {
+    border-color: var(--color-cyan-500);
+  }
+  .border-gray-100 {
+    border-color: var(--color-gray-100);
+  }
+  .border-gray-300 {
+    border-color: var(--color-gray-300);
+  }
+  .border-green-100 {
+    border-color: var(--color-green-100);
+  }
+  .border-green-200 {
+    border-color: var(--color-green-200);
+  }
+  .border-green-300 {
+    border-color: var(--color-green-300);
+  }
+  .border-green-400 {
+    border-color: var(--color-green-400);
+  }
+  .border-green-500 {
+    border-color: var(--color-green-500);
+  }
+  .border-green-700 {
+    border-color: var(--color-green-700);
+  }
+  .border-orange-300 {
+    border-color: var(--color-orange-300);
+  }
+  .border-orange-500 {
+    border-color: var(--color-orange-500);
+  }
+  .border-red-100 {
+    border-color: var(--color-red-100);
+  }
+  .border-red-300 {
+    border-color: var(--color-red-300);
+  }
+  .border-red-400 {
+    border-color: var(--color-red-400);
+  }
+  .border-red-600 {
+    border-color: var(--color-red-600);
+  }
+  .border-red-700 {
+    border-color: var(--color-red-700);
+  }
+  .border-white {
+    border-color: var(--color-white);
+  }
+  .border-yellow-200 {
+    border-color: var(--color-yellow-200);
+  }
+  .border-yellow-400 {
+    border-color: var(--color-yellow-400);
+  }
   .glass {
     border: none;
     backdrop-filter: blur(var(--glass-blur, 40px));
@@ -6748,11 +6855,59 @@
   .bg-base-300 {
     background-color: var(--color-base-300);
   }
+  .bg-blue-200 {
+    background-color: var(--color-blue-200);
+  }
+  .bg-blue-300 {
+    background-color: var(--color-blue-300);
+  }
   .bg-blue-400 {
     background-color: var(--color-blue-400);
   }
+  .bg-blue-500 {
+    background-color: var(--color-blue-500);
+  }
+  .bg-blue-700 {
+    background-color: var(--color-blue-700);
+  }
+  .bg-blue-900 {
+    background-color: var(--color-blue-900);
+  }
+  .bg-cyan-500 {
+    background-color: var(--color-cyan-500);
+  }
+  .bg-gray-300 {
+    background-color: var(--color-gray-300);
+  }
+  .bg-green-100 {
+    background-color: var(--color-green-100);
+  }
+  .bg-green-300 {
+    background-color: var(--color-green-300);
+  }
+  .bg-green-400 {
+    background-color: var(--color-green-400);
+  }
+  .bg-green-500 {
+    background-color: var(--color-green-500);
+  }
+  .bg-green-700 {
+    background-color: var(--color-green-700);
+  }
+  .bg-info {
+    background-color: var(--color-info);
+  }
+  .bg-orange-500 {
+    background-color: var(--color-orange-500);
+  }
   .bg-primary {
     background-color: var(--color-primary);
+  }
+  .bg-red-100 {
+    background-color: var(--color-red-100);
+  }
+  .bg-red-400 {
+    background-color: var(--color-red-400);
   }
   .bg-red-500 {
     background-color: var(--color-red-500);
@@ -6763,6 +6918,12 @@
   .bg-red-500\/\[50\%\] {
     background-color: color-mix(in oklab, var(--color-red-500) 50%, transparent);
   }
+  .bg-red-600 {
+    background-color: var(--color-red-600);
+  }
+  .bg-red-700 {
+    background-color: var(--color-red-700);
+  }
   .bg-slate-200 {
     background-color: var(--color-slate-200);
   }
@@ -6771,6 +6932,12 @@
   }
   .bg-success {
     background-color: var(--color-success);
+  }
+  .bg-white {
+    background-color: var(--color-white);
+  }
+  .bg-yellow-400 {
+    background-color: var(--color-yellow-400);
   }
   .divider-accent {
     &:before, &:after {
@@ -7838,6 +8005,9 @@
       opacity: 100%;
     }
   }
+  .bg-blend-darken {
+    background-blend-mode: darken;
+  }
   .mix-blend-plus-darker {
     mix-blend-mode: plus-darker;
   }
@@ -8776,6 +8946,266 @@
   }
   .transform-view {
     transform-box: view-box;
+  }
+  .checked\:border-blue-50 {
+    &:checked {
+      border-color: var(--color-blue-50);
+    }
+  }
+  .checked\:border-blue-100 {
+    &:checked {
+      border-color: var(--color-blue-100);
+    }
+  }
+  .checked\:border-blue-200 {
+    &:checked {
+      border-color: var(--color-blue-200);
+    }
+  }
+  .checked\:border-blue-300 {
+    &:checked {
+      border-color: var(--color-blue-300);
+    }
+  }
+  .checked\:border-gray-200 {
+    &:checked {
+      border-color: var(--color-gray-200);
+    }
+  }
+  .checked\:border-gray-300 {
+    &:checked {
+      border-color: var(--color-gray-300);
+    }
+  }
+  .checked\:border-green-100 {
+    &:checked {
+      border-color: var(--color-green-100);
+    }
+  }
+  .checked\:border-green-300 {
+    &:checked {
+      border-color: var(--color-green-300);
+    }
+  }
+  .checked\:border-green-700 {
+    &:checked {
+      border-color: var(--color-green-700);
+    }
+  }
+  .checked\:border-red-100 {
+    &:checked {
+      border-color: var(--color-red-100);
+    }
+  }
+  .checked\:border-red-300 {
+    &:checked {
+      border-color: var(--color-red-300);
+    }
+  }
+  .checked\:border-red-400 {
+    &:checked {
+      border-color: var(--color-red-400);
+    }
+  }
+  .checked\:border-red-600 {
+    &:checked {
+      border-color: var(--color-red-600);
+    }
+  }
+  .checked\:border-red-700 {
+    &:checked {
+      border-color: var(--color-red-700);
+    }
+  }
+  .checked\:bg-blue-100 {
+    &:checked {
+      background-color: var(--color-blue-100);
+    }
+  }
+  .checked\:bg-blue-200 {
+    &:checked {
+      background-color: var(--color-blue-200);
+    }
+  }
+  .checked\:bg-blue-300 {
+    &:checked {
+      background-color: var(--color-blue-300);
+    }
+  }
+  .checked\:bg-blue-500 {
+    &:checked {
+      background-color: var(--color-blue-500);
+    }
+  }
+  .checked\:bg-blue-700 {
+    &:checked {
+      background-color: var(--color-blue-700);
+    }
+  }
+  .checked\:bg-cyan-300 {
+    &:checked {
+      background-color: var(--color-cyan-300);
+    }
+  }
+  .checked\:bg-cyan-500 {
+    &:checked {
+      background-color: var(--color-cyan-500);
+    }
+  }
+  .checked\:bg-gray-100 {
+    &:checked {
+      background-color: var(--color-gray-100);
+    }
+  }
+  .checked\:bg-gray-200 {
+    &:checked {
+      background-color: var(--color-gray-200);
+    }
+  }
+  .checked\:bg-gray-300 {
+    &:checked {
+      background-color: var(--color-gray-300);
+    }
+  }
+  .checked\:bg-green-100 {
+    &:checked {
+      background-color: var(--color-green-100);
+    }
+  }
+  .checked\:bg-green-200 {
+    &:checked {
+      background-color: var(--color-green-200);
+    }
+  }
+  .checked\:bg-green-300 {
+    &:checked {
+      background-color: var(--color-green-300);
+    }
+  }
+  .checked\:bg-green-400 {
+    &:checked {
+      background-color: var(--color-green-400);
+    }
+  }
+  .checked\:bg-green-700 {
+    &:checked {
+      background-color: var(--color-green-700);
+    }
+  }
+  .checked\:bg-orange-300 {
+    &:checked {
+      background-color: var(--color-orange-300);
+    }
+  }
+  .checked\:bg-orange-500 {
+    &:checked {
+      background-color: var(--color-orange-500);
+    }
+  }
+  .checked\:bg-red-100 {
+    &:checked {
+      background-color: var(--color-red-100);
+    }
+  }
+  .checked\:bg-red-200 {
+    &:checked {
+      background-color: var(--color-red-200);
+    }
+  }
+  .checked\:bg-red-400 {
+    &:checked {
+      background-color: var(--color-red-400);
+    }
+  }
+  .checked\:bg-red-600 {
+    &:checked {
+      background-color: var(--color-red-600);
+    }
+  }
+  .checked\:bg-red-700 {
+    &:checked {
+      background-color: var(--color-red-700);
+    }
+  }
+  .checked\:bg-yellow-200 {
+    &:checked {
+      background-color: var(--color-yellow-200);
+    }
+  }
+  .checked\:bg-yellow-400 {
+    &:checked {
+      background-color: var(--color-yellow-400);
+    }
+  }
+  .checked\:text-accent {
+    &:checked {
+      color: var(--color-accent);
+    }
+  }
+  .checked\:text-accent-content {
+    &:checked {
+      color: var(--color-accent-content);
+    }
+  }
+  .checked\:text-blue-300 {
+    &:checked {
+      color: var(--color-blue-300);
+    }
+  }
+  .checked\:text-blue-500 {
+    &:checked {
+      color: var(--color-blue-500);
+    }
+  }
+  .checked\:text-blue-700 {
+    &:checked {
+      color: var(--color-blue-700);
+    }
+  }
+  .checked\:text-green-100 {
+    &:checked {
+      color: var(--color-green-100);
+    }
+  }
+  .checked\:text-green-300 {
+    &:checked {
+      color: var(--color-green-300);
+    }
+  }
+  .checked\:text-red-100 {
+    &:checked {
+      color: var(--color-red-100);
+    }
+  }
+  .checked\:text-red-400 {
+    &:checked {
+      color: var(--color-red-400);
+    }
+  }
+  .checked\:text-red-600 {
+    &:checked {
+      color: var(--color-red-600);
+    }
+  }
+  .checked\:text-red-700 {
+    &:checked {
+      color: var(--color-red-700);
+    }
+  }
+  .checked\:text-success {
+    &:checked {
+      color: var(--color-success);
+    }
+  }
+  .checked\:text-success-content {
+    &:checked {
+      color: var(--color-success-content);
+    }
+  }
+  .checked\:text-white {
+    &:checked {
+      color: var(--color-white);
+    }
   }
   .hover\:bg-amber-500 {
     &:hover {
