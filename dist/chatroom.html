@@ -31,9 +31,9 @@
     <!-- Main Body -->
     <div class="flex flex-row">
       <!-- SIDEBAR -->
-      <div class="sidebar bg-base-300 h-dvh min-w-70">
+      <div class="sidebar bg-secondary-content h-dvh min-w-70">
         <div class="mt-20 px-5">
-          <button class="btn btn-soft btn-info w-full">
+          <button class="btn btn-info w-full">
             <span><i class="fa-solid fa-message"></i></span>New Chat!
           </button>
           <h1 class="mt-2">Recent</h1>
@@ -48,55 +48,16 @@
           <section class="px-20 pt-5">
             <div class="response-container flex flex-row gap-2">
               <span
-                class="bg-primary w-10 h-10 rounded-full text-center pt-1.5"
+                class="bg-primary-content w-10 h-10 rounded-full text-center pt-1.5"
               >
                 <i class="fa-solid fa-robot"></i>
               </span>
               <p
-                class="response-message max-w-80 bg-primary px-8 py-2 rounded-3xl"
+                class="response-message max-w-120 bg-primary-content px-8 py-2 rounded-3xl"
               >
                 Hi!, aku Kinoy siap membantu kamu untuk mengetahui MBTI mu. Klik
                 "Mulai Sekarang" untuk memulai.
               </p>
-            </div>
-          </section>
-
-          <!-- USER -->
-          <section class="pr-16 pt-5 justify-items-end items-end">
-            <div
-              class="user-input-container max-w-80 bg-success px-8 py-2 rounded-3xl"
-            >
-              <p class="user-input-message">CONTOH CHAT DARI USER</p>
-            </div>
-          </section>
-
-          <!-- MBTI Question -->
-          <section class="px-20 pt-5">
-            <div class="question-container flex flex-row gap-2">
-              <span
-                class="bg-primary w-10 h-10 rounded-full text-center pt-1.5"
-              >
-                <i class="fa-solid fa-robot"></i>
-              </span>
-              <div class="flex flex-col gap-2">
-                <p
-                  class="response-message max-w-80 bg-primary px-8 py-2 rounded-3xl"
-                >
-                  <img class="w-full" src="./images/intp2.svg" alt="" />
-                </p>
-              </div>
-            </div>
-          </section>
-
-          <!-- Loading -->
-          <section class="px-20 pt-5">
-            <div class="response-container flex flex-row gap-2">
-              <span
-                class="bg-primary w-10 h-10 rounded-full text-center pt-1.5"
-              >
-                <i class="fa-solid fa-robot"></i>
-              </span>
-              <span class="loading loading-ring loading-xl"></span>
             </div>
           </section>
         </div>
@@ -104,7 +65,7 @@
         <!-- User Input  -->
         <div id="inputArea" class="flex flex-wrap px-20 pt-10 pb-20">
           <!-- Start Button -->
-          <button id="startBtn" class="btn btn-soft btn-warning w-full">
+          <button id="startBtn" class="btn btn-accent w-full">
             <span><i class="fa-solid fa-play"></i></span>Mulai Sekarang!
           </button>
 
@@ -125,13 +86,16 @@
             <i class="fa-solid fa-paper-plane"></i>
           </span>
           <div class="input-component-radio hidden">
-            <h1>Setuju</h1>
+            <div class="flex justify-between items-center px-6">
+              <h1>Setuju</h1>
+            </div>
+
             <div
-              class="radio-container flex justify-evenly py-5 rounded-3xl w-dvh"
+              class="radio-container flex justify-evenly py-5 rounded-3xl w-full"
             >
               <label for="radio-value-7">
                 <input
-                  class="radio border-green-700 checked:border-green-300 checked:text-green-300"
+                  class="radio border-green-700 bg-green-500 checked:ring-green-900 checked:text-green-700"
                   type="radio"
                   name="answer"
                   id="radio-value-7"
@@ -140,7 +104,7 @@
               </label>
               <label for="radio-value-6">
                 <input
-                  class="radio border-green-300 checked:border-green-300 checked:text-green-300"
+                  class="radio border-green-500 bg-green-300 checked:ring-green-700 checked:text-green-500"
                   type="radio"
                   name="answer"
                   id="radio-value-6"
@@ -149,7 +113,7 @@
               </label>
               <label for="radio-value-5">
                 <input
-                  class="radio border-green-100 checked:border-green-300 checked:text-green-100"
+                  class="radio border-green-300 bg-green-100 checked:ring-green-500 checked:text-green-300"
                   type="radio"
                   name="answer"
                   id="radio-value-5"
@@ -158,7 +122,7 @@
               </label>
               <label for="radio-value-4">
                 <input
-                  class="radio border-white checked:border-gray-300 checked:text-white"
+                  class="radio border-gray-400 bg-white checked:ring-gray-500 checked:text-gray-400"
                   type="radio"
                   name="answer"
                   id="radio-value-4"
@@ -167,7 +131,7 @@
               </label>
               <label for="radio-value-3">
                 <input
-                  class="radio border-red-100 checked:border-red-300 checked:text-red-100"
+                  class="radio border-red-300 bg-red-100 checked:ring-red-500 checked:text-red-300"
                   type="radio"
                   name="answer"
                   id="radio-value-3"
@@ -176,7 +140,7 @@
               </label>
               <label for="radio-value-2">
                 <input
-                  class="radio border-red-400 checked:border-red-300 checked:text-red-400"
+                  class="radio border-red-500 bg-red-300 checked:ring-red-700 checked:text-red-500"
                   type="radio"
                   name="answer"
                   id="radio-value-2"
@@ -185,7 +149,7 @@
               </label>
               <label for="radio-value-1">
                 <input
-                  class="radio border-red-700 checked:border-red-300 checked:text-red-700"
+                  class="radio border-red-700 bg-red-500 checked:ring-red-900 checked:text-red-700"
                   type="radio"
                   name="answer"
                   id="radio-value-1"
@@ -193,15 +157,12 @@
                 />
               </label>
             </div>
-
-            <div class="flex justify-between px-5">
+            <div class="flex justify-between items-center px-6">
               <h1>Tidak Setuju</h1>
             </div>
           </div>
 
-          <button class="next-btn btn btn-soft btn-info w-full hidden">
-            Next
-          </button>
+          <button class="next-btn btn btn-info w-full hidden">Next</button>
         </div>
       </div>
     </div>
