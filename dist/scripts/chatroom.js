@@ -46,6 +46,13 @@ document.getElementById("sendBtn").addEventListener("click", () => {
 });
 
 const fetchGeminiResponse = async (prompt) => {
+    const mbtiKeywords = ["mbti", "mbti test", "mbti quiz", "mbti personality", "mbti type", "mbti result", "mbti explanation"];
+    const isMbtiRelated = mbtiKeywords.some(keyword => prompt.toLowerCase().includes(keyword));
+
+    if (!isMbtiRelated) {
+        return "Maaf, saya hanya dapat menjawab pertanyaan yang berkaitan dengan MBTI.";
+    }
+
     const requestOptions = {
         method: "POST",
         headers: {
@@ -165,6 +172,7 @@ userInput.addEventListener("keydown", (event) => {
         let message = userInput.value;
         sendMessage(message);
         generateResponse(message);
+        userInput.value = "";
     }
 });
 
