@@ -11,7 +11,7 @@
         <header class="bg-amber-50 w-full fixed z-50">
             <nav class="h-16 mx-16 md:mx-40 lg:mx-64 flex justify-between items-center">
                 <div class="flex items-start bg-amber-50 gap-8 z-50">
-                    <img class="h-12 ml-4" src="images/logo.png" alt="..." />
+                    <img class="h-12 ml-4 cursor-pointer" src="images/logo.png" alt="..." />
                 </div>
                 <div class="nav-links duration-100 md:static absolute bg-amber-50 z-40 md:min-h-fit mr-4 min-h-40 left-0 -top-96 md:w-auto w-full flex items-center px-5">
                     <ul class="flex md:flex-row flex-col md:items-center md:gap-10 gap-4">
@@ -19,10 +19,10 @@
                             <a class="text-gray-950 hover:text-gray-500" href="#">Home</a>
                         </li>
                         <li>
-                            <a class="text-gray-950 hover:text-gray-500" href="#">Tipe MBTI</a>
+                            <a class="text-gray-950 hover:text-gray-500" href="#mbti">Tipe MBTI</a>
                         </li>
                         <li>
-                            <a class="text-gray-950 hover:text-gray-500" href="#">Tes Sekarang</a>
+                            <a class="text-gray-950 hover:text-gray-500" href="chatroom.html">Tes Sekarang</a>
                         </li>
                     </ul>
                 </div>
@@ -90,7 +90,7 @@
                 </li>
                 <li class="mb-2">
                     <span class="font-bold">Judging (J) vs Perceiving (P)</span>
-                    <p>→ Menunjukkan bagaimana kamu menjalani hidup sehari-hari.</p>
+                    <p id="mbti">→ Menunjukkan bagaimana kamu menjalani hidup sehari-hari.</p>
                     <p>Tipe judging menyukai rencana yang terstruktur dan keputusan yang jelas, sedangkan tipe perceiving lebih fleksibel, spontan, dan terbuka terhadap berbagai kemungkinan.</p>
                 </li>
             </ol>
@@ -293,7 +293,7 @@
         </section>
 
         <section class="mx-16 md:mx-40 lg:mx-64 mb-16">
-            <button class="bg-amber-400 px-5 py-2 rounded-full hover:bg-amber-500">Tes Sekarang →</button>
+            <a href="chatroom.html" class="bg-amber-400 px-5 py-2 rounded-full hover:bg-amber-500">Tes Sekarang →</a>
         </section>
 
         <!-- Footer -->
