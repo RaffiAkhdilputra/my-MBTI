@@ -93,7 +93,7 @@ const generateResponse = async (prompt) => {
     if (!chatBody) return;
 
     const section = document.createElement("section");
-    section.classList.add("px-20", "pt-5");
+    section.classList.add("px-5", "md:px-20", "pt-10");
 
     const div = document.createElement("div");
     div.classList.add("response-container", "flex", "flex-row", "gap-2");
@@ -322,7 +322,7 @@ const promptHasil = "jadilah seorang psikolog yang memberikan hasil tes MBTI {ha
 
 const showResult = async (result) => {
     const section1 = document.createElement("section");
-    section1.classList.add("px-20", "pt-5");
+    section1.classList.add("px-5", "md:px-20", "pt-10");
 
     const div1 = document.createElement("div");
     div1.classList.add("response-container", "flex", "flex-row", "gap-2");
@@ -350,7 +350,7 @@ const showResult = async (result) => {
     chatBody.appendChild(section1);
 
     const section2 = document.createElement("section");
-    section2.classList.add("px-20", "pt-5");
+    section2.classList.add("px-5", "md:px-20", "pt-10");
 
     const div2 = document.createElement("div");
     div2.classList.add("response-container", "flex", "flex-row", "gap-2");
