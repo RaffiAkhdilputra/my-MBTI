@@ -18,7 +18,7 @@ const sendMessage = (message) => {
     if (!message.trim()) return;
 
     const section = document.createElement("section");
-    section.classList.add("pr-16", "pt-5", "justify-items-end", "items-end");
+    section.classList.add("pr-5", "md:pr-16", "pt-5", "justify-items-end", "items-end");
 
     const div = document.createElement("div");
     div.classList.add("user-input-container", "max-w-80", "bg-success", "px-8", "py-2", "rounded-3xl");
