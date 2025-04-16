@@ -4300,8 +4300,26 @@
   .mx-2 {
     margin-inline: calc(var(--spacing) * 2);
   }
+  .mx-6 {
+    margin-inline: calc(var(--spacing) * 6);
+  }
+  .mx-10 {
+    margin-inline: calc(var(--spacing) * 10);
+  }
+  .mx-12 {
+    margin-inline: calc(var(--spacing) * 12);
+  }
+  .mx-13 {
+    margin-inline: calc(var(--spacing) * 13);
+  }
+  .mx-14 {
+    margin-inline: calc(var(--spacing) * 14);
+  }
   .mx-16 {
     margin-inline: calc(var(--spacing) * 16);
+  }
+  .mx-17 {
+    margin-inline: calc(var(--spacing) * 17);
   }
   .mx-auto {
     margin-inline: auto;
@@ -7283,6 +7301,12 @@
   .pt-10 {
     padding-top: calc(var(--spacing) * 10);
   }
+  .pt-12 {
+    padding-top: calc(var(--spacing) * 12);
+  }
+  .pt-20 {
+    padding-top: calc(var(--spacing) * 20);
+  }
   .pt-24 {
     padding-top: calc(var(--spacing) * 24);
   }
@@ -9149,6 +9173,11 @@
   .md\:pt-10 {
     @media (width >= 48rem) {
       padding-top: calc(var(--spacing) * 10);
+    }
+  }
+  .md\:pt-24 {
+    @media (width >= 48rem) {
+      padding-top: calc(var(--spacing) * 24);
     }
   }
   .md\:pr-16 {
