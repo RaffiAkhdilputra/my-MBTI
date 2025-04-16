@@ -207,7 +207,7 @@ const quiz = () => {
 
         if (question && dimension && side) {
             const section = document.createElement("section");
-            section.classList.add("px-20", "pt-5");
+            section.classList.add("px-5","md:px-20", "pt-5");
 
             const div = document.createElement("div");
             div.classList.add("question-container", "flex", "flex-row", "gap-2");
@@ -369,7 +369,6 @@ const showResult = async (result) => {
 
     chatBody.appendChild(section2);
 
-    p1.scrollIntoView({ behavior: "smooth" });
     p2.scrollIntoView({ behavior: "smooth" });
     
     generateResponse(promptHasil.replace("{hasil}", result.type))

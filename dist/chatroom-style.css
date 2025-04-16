@@ -5402,6 +5402,9 @@
   .h-dvh {
     height: 100dvh;
   }
+  .h-dvw {
+    height: 100dvw;
+  }
   .h-screen {
     height: 100vh;
   }
