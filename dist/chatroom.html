@@ -36,11 +36,16 @@
     <!-- Main Body -->
     <div class="flex flex-row">
       <!-- SIDEBAR -->
-      <div class="sidebar bg-secondary-content h-dvh min-w-70">
+      <div
+        class="absolute md:relative sidebar bg-secondary-content h-dvh min-w-70 hidden"
+      >
         <div class="mt-20 px-5">
-          <button class="btn btn-info w-full">
+          <a class="btn btn-success w-full mb-5" href="index.html"
+            ><span><i class="fa-solid fa-home"></i></span>Home</a
+          >
+          <a class="btn btn-info w-full" href="chatroom.html">
             <span><i class="fa-solid fa-message"></i></span>New Chat!
-          </button>
+          </a>
           <h1 class="mt-2">Recent</h1>
         </div>
       </div>
@@ -50,10 +55,10 @@
         <!-- Chat Body -->
         <div id="chatBody" class="h-dvh basis-full overflow-y-auto pt-3">
           <!-- AI response -->
-          <section class="px-20 pt-5">
+          <section class="px-10 md:px-20 pt-10">
             <div class="response-container flex flex-row gap-2">
               <span
-                class="bg-primary-content w-10 h-10 rounded-full text-center pt-1.5"
+                class="bg-primary-content min-w-10 h-10 rounded-full text-center pt-1.5"
               >
                 <i class="fa-solid fa-robot"></i>
               </span>
@@ -68,7 +73,10 @@
         </div>
 
         <!-- User Input  -->
-        <div id="inputArea" class="flex flex-wrap px-20 pt-10 pb-20">
+        <div
+          id="inputArea"
+          class="flex flex-wrap px-5 md:px-20 lg:px-20 pt-10 pb-20"
+        >
           <!-- Start Button -->
           <button id="startBtn" class="btn btn-accent w-full">
             <span><i class="fa-solid fa-play"></i></span>Mulai Sekarang!
@@ -93,7 +101,7 @@
 
           <!-- Radio -->
           <div class="input-component-radio hidden">
-            <div class="flex justify-between items-center px-6">
+            <div class="hidden sm:flex justify-between items-center px-6">
               <h1>Setuju</h1>
             </div>
 
@@ -164,7 +172,7 @@
                 />
               </label>
             </div>
-            <div class="flex justify-between items-center px-6">
+            <div class="hidden sm:flex justify-between items-center px-6">
               <h1>Tidak Setuju</h1>
             </div>
           </div>

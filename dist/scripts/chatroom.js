@@ -99,7 +99,7 @@ const generateResponse = async (prompt) => {
     div.classList.add("response-container", "flex", "flex-row", "gap-2");
 
     const span = document.createElement("span");
-    span.classList.add("bg-primary-content", "w-10", "h-10", "rounded-full", "text-center", "flex", "items-center", "justify-center");
+    span.classList.add("bg-primary-content", "min-w-10", "h-10", "rounded-full", "text-center", "flex", "items-center", "justify-center");
     span.innerHTML = '<i class="fa-solid fa-robot"></i>';
 
     const loading = document.createElement("span");
@@ -213,7 +213,7 @@ const quiz = () => {
             div.classList.add("question-container", "flex", "flex-row", "gap-2");
 
             const span = document.createElement("span");
-            span.classList.add("bg-primary-content", "w-10", "h-10", "rounded-full", "text-center", "flex", "items-center", "justify-center");
+            span.classList.add("bg-primary-content", "min-w-10", "h-10", "rounded-full", "text-center", "flex", "items-center", "justify-center");
             span.innerHTML = '<i class="fa-solid fa-robot"></i>';
 
             const p = document.createElement("p");
@@ -336,7 +336,7 @@ const showResult = async (result) => {
     div1.removeChild(loading);
 
     const span1 = document.createElement("span");
-    span1.classList.add("bg-primary-content", "w-10", "h-10", "rounded-full", "text-center", "pt-1.5");
+    span1.classList.add("bg-primary-content", "min-w-10", "h-10", "rounded-full", "text-center", "pt-1.5");
     span1.innerHTML = '<i class="fa-solid fa-robot"></i>';
 
     const p1 = document.createElement("p");
@@ -356,7 +356,7 @@ const showResult = async (result) => {
     div2.classList.add("response-container", "flex", "flex-row", "gap-2");
     
     const span2 = document.createElement("span");
-    span2.classList.add("bg-primary-content", "w-10", "h-10", "rounded-full", "text-center", "pt-1.5");
+    span2.classList.add("bg-primary-content", "min-w-10", "h-10", "rounded-full", "text-center", "pt-1.5");
     span2.innerHTML = '<i class="fa-solid fa-robot"></i>';
 
     const p2 = document.createElement("p");

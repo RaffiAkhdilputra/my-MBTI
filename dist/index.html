@@ -8,630 +8,645 @@
     <title>myMBTI</title>
   </head>
   <body>
-    <!-- Navbar -->
-    <header class="bg-primary shadow w-full fixed z-50">
-      <nav
-        class="h-16 mx-16 md:mx-40 lg:mx-64 flex justify-between items-center"
-      >
-        <div class="flex items-start bg-primary gap-8 z-50">
-          <img
-            class="h-12 ml-4 cursor-pointer"
-            src="images/logo.png"
-            alt="..."
-          />
-        </div>
-        <div
-          class="nav-links duration-100 md:static absolute bg-primary z-40 md:min-h-fit mr-4 min-h-40 left-0 -top-96 md:w-auto w-full flex items-center px-5"
+    <div class="w-dvw">
+      <!-- Navbar -->
+      <header class="bg-primary shadow w-full fixed z-50">
+        <nav
+          class="h-16 mx-16 md:mx-40 lg:mx-64 flex justify-between items-center"
         >
-          <ul class="flex md:flex-row flex-col md:items-center md:gap-10 gap-4">
-            <li>
-              <a class="text-gray-950 hover:text-gray-500" href="#">Home</a>
-            </li>
-            <li>
-              <a class="text-gray-950 hover:text-gray-500" href="#mbti"
-                >Tipe MBTI</a
-              >
-            </li>
-            <li>
-              <a class="text-gray-950 hover:text-gray-500" href="chatroom.html"
-                >Tes Sekarang</a
-              >
-            </li>
-          </ul>
-        </div>
-        <div class="mr-4 md:hidden z-50">
-          <ion-icon
-            onclick="onToggleMenu(this)"
-            name="menu"
-            class="text-3xl text-gray-950 cursor-pointer"
-          ></ion-icon>
-        </div>
-      </nav>
-    </header>
-
-    <!-- Carousel -->
-    <section class="pt-24 pb-8 md:pb-16 lg:pb-24">
-      <div class="w-full" x-data="mbtiSlide" x-init="loop">
-        <template x-for="slide in slides" :key="slide.id">
+          <div class="flex items-start bg-primary gap-8 z-50">
+            <img
+              class="h-12 ml-4 cursor-pointer"
+              src="images/logo.png"
+              alt="..."
+            />
+          </div>
           <div
-            x-show="activeSlide === slide.id"
-            class="mx-16 md:mx-40 lg:mx-64 aspect-20/9 flex bg-no-repeat bg-cover bg-center"
-            :style="`background-image: url(${slide.img})`"
-          ></div>
-        </template>
+            class="nav-links duration-100 md:static absolute bg-primary z-40 md:min-h-fit mr-4 min-h-40 left-0 -top-96 md:w-auto w-full flex items-center px-5"
+          >
+            <ul
+              class="flex md:flex-row flex-col md:items-center md:gap-10 gap-4"
+            >
+              <li>
+                <a class="text-gray-950 hover:text-gray-500" href="#">Home</a>
+              </li>
+              <li>
+                <a class="text-gray-950 hover:text-gray-500" href="#mbti"
+                  >Tipe MBTI</a
+                >
+              </li>
+              <li>
+                <a
+                  class="text-gray-950 hover:text-gray-500"
+                  href="chatroom.html"
+                  >Tes Sekarang</a
+                >
+              </li>
+            </ul>
+          </div>
+          <div class="mr-4 md:hidden z-50">
+            <ion-icon
+              onclick="onToggleMenu(this)"
+              name="menu"
+              class="text-3xl text-gray-950 cursor-pointer"
+            ></ion-icon>
+          </div>
+        </nav>
+      </header>
 
-        <div class="absolute w-full flex items-center justify-center px-64">
+      <!-- Carousel -->
+      <section class="pt-24 pb-8 md:pb-16 lg:pb-24">
+        <div class="w-full" x-data="mbtiSlide" x-init="loop">
           <template x-for="slide in slides" :key="slide.id">
-            <button
-              class="w-3 h-3 mt-4 mx-2 mb-2 rounded-full overflow-hidden transition-colors duration-200 ease-in-out hover:bg-slate-400"
-              :class="{
-                            'bg-blue-400' : activeSlide === slide.id,
-                            'bg-slate-200' : activeSlide !== slide.id,
-                        }"
-              x-on:click="activeSlide = slide.id"
-            ></button>
+            <div
+              x-show="activeSlide === slide.id"
+              class="mx-16 md:mx-40 lg:mx-64 aspect-20/9 flex bg-no-repeat bg-cover bg-center"
+              :style="`background-image: url(${slide.img})`"
+            ></div>
           </template>
+
+          <div class="w-dvh flex items-center justify-center md:px-64 sm:px-0">
+            <template x-for="slide in slides" :key="slide.id">
+              <button
+                class="w-3 h-3 mt-4 mx-2 mb-2 rounded-full overflow-hidden transition-colors duration-200 ease-in-out hover:bg-slate-400"
+                :class="{
+            'bg-blue-400' : activeSlide === slide.id,
+            'bg-slate-200' : activeSlide !== slide.id,
+          }"
+                x-on:click="activeSlide = slide.id"
+              ></button>
+            </template>
+          </div>
         </div>
-      </div>
-    </section>
+      </section>
 
-    <!-- Apa itu MBTI -->
-    <section class="mx-16 md:mx-40 lg:mx-64 mb-16">
-      <h2 class="font-bold text-4xl mb-4">Apa Itu MBTI?</h2>
-      <p class="mb-2">
-        <span class="font-bold"></span>MBTI adalah singkatan dari
-        <span class="font-bold">Myers-Briggs Type Indicator</span>, yaitu sebuah
-        metode pengukuran kepribadian yang dirancang untuk membantu seseorang
-        memahami cara berpikir, merasakan, dan berinteraksi dengan dunia di
-        sekitarnya. MBTI dikembangkan oleh
-        <span class="font-bold">Isabel Briggs Myers</span> dan ibunya,
-        <span class="font-bold">Katharine Cook Briggs</span>, berdasarkan teori
-        psikolog terkenal Carl Jung.
-      </p>
-      <p>
-        Tujuan utama MBTI adalah untuk membantu orang mengenali kekuatan,
-        potensi, serta gaya komunikasi dan pengambilan keputusan mereka,
-        sehingga bisa lebih memahami diri sendiri maupun orang lain. MBTI telah
-        digunakan secara luas di berbagai bidang, mulai dari pengembangan diri,
-        pendidikan, dunia kerja, hingga hubungan sosial.
-      </p>
-    </section>
+      <!-- Apa itu MBTI -->
+      <section class="mx-16 md:mx-40 lg:mx-64 mb-16">
+        <h2 class="font-bold text-4xl mb-4">Apa Itu MBTI?</h2>
+        <p class="mb-2">
+          <span class="font-bold"></span>MBTI adalah singkatan dari
+          <span class="font-bold">Myers-Briggs Type Indicator</span>, yaitu
+          sebuah metode pengukuran kepribadian yang dirancang untuk membantu
+          seseorang memahami cara berpikir, merasakan, dan berinteraksi dengan
+          dunia di sekitarnya. MBTI dikembangkan oleh
+          <span class="font-bold">Isabel Briggs Myers</span> dan ibunya,
+          <span class="font-bold">Katharine Cook Briggs</span>, berdasarkan
+          teori psikolog terkenal Carl Jung.
+        </p>
+        <p>
+          Tujuan utama MBTI adalah untuk membantu orang mengenali kekuatan,
+          potensi, serta gaya komunikasi dan pengambilan keputusan mereka,
+          sehingga bisa lebih memahami diri sendiri maupun orang lain. MBTI
+          telah digunakan secara luas di berbagai bidang, mulai dari
+          pengembangan diri, pendidikan, dunia kerja, hingga hubungan sosial.
+        </p>
+      </section>
 
-    <!-- Bagaimana Cara Kerjanya -->
-    <section class="mx-16 md:mx-40 lg:mx-64 mb-16">
-      <h2 class="font-bold text-4xl mb-4">Bagaimana Cara Kerjanya?</h2>
-      <p class="mb-2">
-        MBTI membagi kepribadian seseorang ke dalam empat dimensi utama, yang
-        masing-masing memiliki dua kutub berbeda:
-      </p>
-      <ol class="list-decimal ml-4">
-        <li class="mb-2">
-          <span class="font-bold">Ekstrovert (E) vs Introvert (I)</span>
-          <p>→ Menggambarkan dari mana kamu mendapatkan energi.</p>
-          <p>
-            Ekstrovert cenderung berenergi dari interaksi sosial, sementara
-            introvert merasa lebih nyaman dan “recharge” saat sendiri.
-          </p>
-        </li>
-        <li class="mb-2">
-          <span class="font-bold">Sensing (S) vs Intuition (N)</span>
-          <p>→ Menjelaskan cara kamu memproses informasi.</p>
-          <p>
-            Tipe sensing fokus pada fakta dan realita yang konkret, sedangkan
-            tipe intuition lebih tertarik pada pola, ide besar, dan kemungkinan
-            di masa depan.
-          </p>
-        </li>
-        <li class="mb-2">
-          <span class="font-bold">Thinking (T) vs Feeling (F)</span>
-          <p>→ Berkaitan dengan cara kamu mengambil keputusan.</p>
-          <p>
-            Tipe thinking menggunakan logika dan objektivitas, sementara tipe
-            feeling lebih mempertimbangkan perasaan dan nilai-nilai pribadi atau
-            dampaknya ke orang lain.
-          </p>
-        </li>
-        <li class="mb-2">
-          <span class="font-bold">Judging (J) vs Perceiving (P)</span>
-          <p id="mbti">
-            → Menunjukkan bagaimana kamu menjalani hidup sehari-hari.
-          </p>
-          <p>
-            Tipe judging menyukai rencana yang terstruktur dan keputusan yang
-            jelas, sedangkan tipe perceiving lebih fleksibel, spontan, dan
-            terbuka terhadap berbagai kemungkinan.
-          </p>
-        </li>
-      </ol>
-    </section>
+      <!-- Bagaimana Cara Kerjanya -->
+      <section class="mx-16 md:mx-40 lg:mx-64 mb-16">
+        <h2 class="font-bold text-4xl mb-4">Bagaimana Cara Kerjanya?</h2>
+        <p class="mb-2">
+          MBTI membagi kepribadian seseorang ke dalam empat dimensi utama, yang
+          masing-masing memiliki dua kutub berbeda:
+        </p>
+        <ol class="list-decimal ml-4">
+          <li class="mb-2">
+            <span class="font-bold">Ekstrovert (E) vs Introvert (I)</span>
+            <p>→ Menggambarkan dari mana kamu mendapatkan energi.</p>
+            <p>
+              Ekstrovert cenderung berenergi dari interaksi sosial, sementara
+              introvert merasa lebih nyaman dan “recharge” saat sendiri.
+            </p>
+          </li>
+          <li class="mb-2">
+            <span class="font-bold">Sensing (S) vs Intuition (N)</span>
+            <p>→ Menjelaskan cara kamu memproses informasi.</p>
+            <p>
+              Tipe sensing fokus pada fakta dan realita yang konkret, sedangkan
+              tipe intuition lebih tertarik pada pola, ide besar, dan
+              kemungkinan di masa depan.
+            </p>
+          </li>
+          <li class="mb-2">
+            <span class="font-bold">Thinking (T) vs Feeling (F)</span>
+            <p>→ Berkaitan dengan cara kamu mengambil keputusan.</p>
+            <p>
+              Tipe thinking menggunakan logika dan objektivitas, sementara tipe
+              feeling lebih mempertimbangkan perasaan dan nilai-nilai pribadi
+              atau dampaknya ke orang lain.
+            </p>
+          </li>
+          <li class="mb-2">
+            <span class="font-bold">Judging (J) vs Perceiving (P)</span>
+            <p id="mbti">
+              → Menunjukkan bagaimana kamu menjalani hidup sehari-hari.
+            </p>
+            <p>
+              Tipe judging menyukai rencana yang terstruktur dan keputusan yang
+              jelas, sedangkan tipe perceiving lebih fleksibel, spontan, dan
+              terbuka terhadap berbagai kemungkinan.
+            </p>
+          </li>
+        </ol>
+      </section>
 
-    <!-- MBTI Type -->
-    <section class="mx-16 md:mx-40 lg:mx-64">
-      <div class="mt-4 mb-16 text-center font-bold text-3xl">ANALYSTS</div>
-      <div
-        class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-x-4 gap-y-12 mb-12"
-      >
+      <!-- MBTI Type -->
+      <section class="mx-16 md:mx-40 lg:mx-64">
+        <div class="mt-4 mb-16 text-center font-bold text-3xl">ANALYSTS</div>
         <div
-          class="bg-accent w-full rounded-lg relative pt-10 px-6 pb-4 text-center"
+          class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-x-4 gap-y-12 mb-12"
         >
           <div
-            class="w-28 h-16 bg-purple-100 rounded-xl flex absolute -top-8 left-1/2 -translate-x-1/2"
+            class="bg-accent w-full rounded-lg relative pt-10 px-6 pb-4 text-center"
           >
-            <img src="images/banner/intj.svg" alt="" class="h-12 m-auto" />
+            <div
+              class="w-28 h-16 bg-purple-100 rounded-xl flex absolute -top-8 left-1/2 -translate-x-1/2"
+            >
+              <img src="images/banner/intj.svg" alt="" class="h-12 m-auto" />
+            </div>
+            <h3 class="font-bold">Architect</h3>
+            <h2 class="text-2xl font-bold">INTJ</h2>
+            <p>
+              Pemikir strategis yang penuh imajinasi dan selalu menyusun rencana
+              yang matang untuk setiap situasi.
+            </p>
           </div>
-          <h3 class="font-bold">Architect</h3>
-          <h2 class="text-2xl font-bold">INTJ</h2>
-          <p>
-            Pemikir strategis yang penuh imajinasi dan selalu menyusun rencana
-            yang matang untuk setiap situasi.
-          </p>
-        </div>
-        <div
-          class="bg-accent w-full rounded-lg relative pt-10 px-6 pb-4 text-center"
-        >
           <div
-            class="w-28 h-16 bg-purple-100 rounded-xl flex absolute -top-8 left-1/2 -translate-x-1/2"
+            class="bg-accent w-full rounded-lg relative pt-10 px-6 pb-4 text-center"
           >
-            <img src="images/banner/intp.svg" alt="" class="h-12 m-auto" />
+            <div
+              class="w-28 h-16 bg-purple-100 rounded-xl flex absolute -top-8 left-1/2 -translate-x-1/2"
+            >
+              <img src="images/banner/intp.svg" alt="" class="h-12 m-auto" />
+            </div>
+            <h3 class="font-bold">Logician</h3>
+            <h2 class="text-2xl font-bold">INTP</h2>
+            <p>
+              Penemu yang kreatif dan inovatif dengan rasa ingin tahu yang tak
+              pernah padam terhadap pengetahuan.
+            </p>
           </div>
-          <h3 class="font-bold">Logician</h3>
-          <h2 class="text-2xl font-bold">INTP</h2>
-          <p>
-            Penemu yang kreatif dan inovatif dengan rasa ingin tahu yang tak
-            pernah padam terhadap pengetahuan.
-          </p>
-        </div>
-        <div
-          class="bg-accent w-full rounded-lg relative pt-10 px-6 pb-4 text-center"
-        >
           <div
-            class="w-28 h-16 bg-purple-100 rounded-xl flex absolute -top-8 left-1/2 -translate-x-1/2"
+            class="bg-accent w-full rounded-lg relative pt-10 px-6 pb-4 text-center"
           >
-            <img src="images/banner/entj.svg" alt="" class="h-12 m-auto" />
+            <div
+              class="w-28 h-16 bg-purple-100 rounded-xl flex absolute -top-8 left-1/2 -translate-x-1/2"
+            >
+              <img src="images/banner/entj.svg" alt="" class="h-12 m-auto" />
+            </div>
+            <h3 class="font-bold">Commander</h3>
+            <h2 class="text-2xl font-bold">ENTJ</h2>
+            <p>
+              Pemimpin yang berani, imajinatif, dan teguh pendirian, selalu bisa
+              menemukan jalan atau menciptakannya sendiri.
+            </p>
           </div>
-          <h3 class="font-bold">Commander</h3>
-          <h2 class="text-2xl font-bold">ENTJ</h2>
-          <p>
-            Pemimpin yang berani, imajinatif, dan teguh pendirian, selalu bisa
-            menemukan jalan atau menciptakannya sendiri.
-          </p>
-        </div>
-        <div
-          class="bg-accent w-full rounded-lg relative pt-10 px-6 pb-4 text-center"
-        >
           <div
-            class="w-28 h-16 bg-purple-100 rounded-xl flex absolute -top-8 left-1/2 -translate-x-1/2"
+            class="bg-accent w-full rounded-lg relative pt-10 px-6 pb-4 text-center"
           >
-            <img src="images/banner/entp.svg" alt="" class="h-12 m-auto" />
-          </div>
-          <h3 class="font-bold">Debater</h3>
-          <h2 class="text-2xl font-bold">ENTP</h2>
-          <p>
-            Pemikir yang fleksibel dan ingin tahu, tak pernah menolak tantangan
-            intelektual.
-          </p>
-        </div>
-      </div>
-
-      <div class="mt-4 mb-16 text-center font-bold text-3xl">DIPLOMATS</div>
-      <div
-        class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-x-4 gap-y-12 mb-12"
-      >
-        <div
-          class="bg-success w-full rounded-lg relative pt-10 px-6 pb-4 text-center"
-        >
-          <div
-            class="w-28 h-16 bg-green-100 rounded-xl flex absolute -top-8 left-1/2 -translate-x-1/2"
-          >
-            <img src="images/banner/infj.svg" alt="" class="h-12 m-auto" />
-          </div>
-          <h3 class="font-bold">Advocate</h3>
-          <h2 class="text-2xl font-bold">INFJ</h2>
-          <p>
-            Sosok yang tenang dan misterius, tapi penuh inspirasi dan semangat
-            idealisme.
-          </p>
-        </div>
-        <div
-          class="bg-success w-full rounded-lg relative pt-10 px-6 pb-4 text-center"
-        >
-          <div
-            class="w-28 h-16 bg-green-100 rounded-xl flex absolute -top-8 left-1/2 -translate-x-1/2"
-          >
-            <img src="images/banner/infp.svg" alt="" class="h-12 m-auto" />
-          </div>
-          <h3 class="font-bold">Mediator</h3>
-          <h2 class="text-2xl font-bold">INFP</h2>
-          <p>
-            Pribadi puitis dan penuh empati, selalu semangat mendukung hal-hal
-            bermakna.
-          </p>
-        </div>
-        <div
-          class="bg-success w-full rounded-lg relative pt-10 px-6 pb-4 text-center"
-        >
-          <div
-            class="w-28 h-16 bg-green-100 rounded-xl flex absolute -top-8 left-1/2 -translate-x-1/2"
-          >
-            <img src="images/banner/enfj.svg" alt="" class="h-12 m-auto" />
-          </div>
-          <h3 class="font-bold">Protagonist</h3>
-          <h2 class="text-2xl font-bold">ENFJ</h2>
-          <p>
-            Pemimpin karismatik yang mampu menginspirasi dan menyentuh hati
-            banyak orang.
-          </p>
-        </div>
-        <div
-          class="bg-success w-full rounded-lg relative pt-10 px-6 pb-4 text-center"
-        >
-          <div
-            class="w-28 h-16 bg-green-100 rounded-xl flex absolute -top-8 left-1/2 -translate-x-1/2"
-          >
-            <img src="images/banner/enfp.svg" alt="" class="h-12 m-auto" />
-          </div>
-          <h3 class="font-bold">Campaigner</h3>
-          <h2 class="text-2xl font-bold">ENFP</h2>
-          <p>
-            Jiwa bebas yang penuh semangat, imajinasi, suka bersosialisasi dan
-            selalu membawa semangat positif.
-          </p>
-        </div>
-      </div>
-
-      <div class="mt-4 mb-16 text-center font-bold text-3xl">SENTINELS</div>
-      <div
-        class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-x-4 gap-y-12 mb-12"
-      >
-        <div
-          class="bg-info w-full rounded-lg relative pt-10 px-6 pb-4 text-center"
-        >
-          <div
-            class="w-28 h-16 bg-sky-100 rounded-xl flex absolute -top-8 left-1/2 -translate-x-1/2"
-          >
-            <img src="images/banner/istj.svg" alt="" class="h-12 m-auto" />
-          </div>
-          <h3 class="font-bold">Logistician</h3>
-          <h2 class="text-2xl font-bold">ISTJ</h2>
-          <p>
-            Pribadi yang praktis dan berorientasi pada fakta, sangat dapat
-            diandalkan dan konsisten dalam tindakan.
-          </p>
-        </div>
-        <div
-          class="bg-info w-full rounded-lg relative pt-10 px-6 pb-4 text-center"
-        >
-          <div
-            class="w-28 h-16 bg-sky-100 rounded-xl flex absolute -top-8 left-1/2 -translate-x-1/2"
-          >
-            <img src="images/banner/isfj.svg" alt="" class="h-12 m-auto" />
-          </div>
-          <h3 class="font-bold">Defender</h3>
-          <h2 class="text-2xl font-bold">ISFJ</h2>
-          <p>
-            Pelindung yang penuh dedikasi dan kehangatan, selalu siap menjaga
-            orang-orang yang mereka sayangi.
-          </p>
-        </div>
-        <div
-          class="bg-info w-full rounded-lg relative pt-10 px-6 pb-4 text-center"
-        >
-          <div
-            class="w-28 h-16 bg-sky-100 rounded-xl flex absolute -top-8 left-1/2 -translate-x-1/2"
-          >
-            <img src="images/banner/estj.svg" alt="" class="h-12 m-auto" />
-          </div>
-          <h3 class="font-bold">Executive</h3>
-          <h2 class="text-2xl font-bold">ESTJ</h2>
-          <p>
-            Administrator yang hebat, sangat unggul dalam mengatur orang maupun
-            situasi dengan efisien.
-          </p>
-        </div>
-        <div
-          class="bg-info w-full rounded-lg relative pt-10 px-6 pb-4 text-center"
-        >
-          <div
-            class="w-28 h-16 bg-sky-100 rounded-xl flex absolute -top-8 left-1/2 -translate-x-1/2"
-          >
-            <img src="images/banner/esfj.svg" alt="" class="h-12 m-auto" />
-          </div>
-          <h3 class="font-bold">Consul</h3>
-          <h2 class="text-2xl font-bold">ESFJ</h2>
-          <p>
-            Sosok yang sangat peduli, ramah, dan disukai banyak orang, selalu
-            antusias membantu orang lain.
-          </p>
-        </div>
-      </div>
-
-      <div class="mt-4 mb-16 text-center font-bold text-3xl">EXPLORERS</div>
-      <div
-        class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-x-4 gap-y-12 mb-12"
-      >
-        <div
-          class="bg-warning w-full rounded-lg relative pt-10 px-6 pb-4 text-center"
-        >
-          <div
-            class="w-28 h-16 bg-yellow-100 rounded-xl flex absolute -top-8 left-1/2 -translate-x-1/2"
-          >
-            <img src="images/banner/istp.svg" alt="" class="h-12 m-auto" />
-          </div>
-          <h3 class="font-bold">Virtuoso</h3>
-          <h2 class="text-2xl font-bold">ISTP</h2>
-          <p>
-            Eksperimen praktis yang berani, ahli menggunakan berbagai macam alat
-            dan teknik.
-          </p>
-        </div>
-        <div
-          class="bg-warning w-full rounded-lg relative pt-10 px-6 pb-4 text-center"
-        >
-          <div
-            class="w-28 h-16 bg-yellow-100 rounded-xl flex absolute -top-8 left-1/2 -translate-x-1/2"
-          >
-            <img src="images/banner/isfp.svg" alt="" class="h-12 m-auto" />
-          </div>
-          <h3 class="font-bold">Adventurer</h3>
-          <h2 class="text-2xl font-bold">ISFP</h2>
-          <p>
-            Seniman yang fleksibel dan menawan, selalu siap untuk menjelajah dan
-            merasakan hal-hal baru.
-          </p>
-        </div>
-        <div
-          class="bg-warning w-full rounded-lg relative pt-10 px-6 pb-4 text-center"
-        >
-          <div
-            class="w-28 h-16 bg-yellow-100 rounded-xl flex absolute -top-8 left-1/2 -translate-x-1/2"
-          >
-            <img src="images/banner/estp.svg" alt="" class="h-12 m-auto" />
-          </div>
-          <h3 class="font-bold">Entrepreneur</h3>
-          <h2 class="text-2xl font-bold">ESTP</h2>
-          <p>
-            Pribadi yang cerdas, penuh energi, dan sangat peka, dengan semangat
-            tinggi menjalani hidup penuh tantangan.
-          </p>
-        </div>
-        <div
-          class="bg-warning w-full rounded-lg relative pt-10 px-6 pb-4 text-center"
-        >
-          <div
-            class="w-28 h-16 bg-yellow-100 rounded-xl flex absolute -top-8 left-1/2 -translate-x-1/2"
-          >
-            <img src="images/banner/esfp.svg" alt="" class="h-12 m-auto" />
-          </div>
-          <h3 class="font-bold">Entertainer</h3>
-          <h2 class="text-2xl font-bold">ESFP</h2>
-          <p>
-            Orang yang spontan, penuh semangat, dan antusias, kehadiran mereka
-            selalu membawa keceriaan.
-          </p>
-        </div>
-      </div>
-    </section>
-
-    <!-- Mengapa MBTI Menarik -->
-    <section class="mx-16 md:mx-40 lg:mx-64 mb-16">
-      <h2 class="font-bold text-4xl mb-4">Mengapa MBTI Menarik?</h2>
-      <p class="mb-2">
-        MBTI menarik bukan hanya karena seru untuk dicoba, tapi karena bisa
-        membuka wawasan tentang siapa diri kita sebenarnya. Banyak orang merasa
-        terbantu saat mengetahui tipe MBTI mereka karena ternyata, cara kita
-        berpikir, merasakan, dan bertindak itu punya pola yang bisa dijelaskan.
-      </p>
-      <ul class="list-disc ml-4">
-        <li class="mb-2">
-          <span class="font-bold">Mengenal Diri Sendiri Lebih Dalam</span>
-          <p>
-            MBTI membantu kamu memahami bagaimana kamu memproses informasi,
-            membuat keputusan, hingga cara kamu mengisi ulang energi. Ini bisa
-            jadi titik awal untuk pengembangan diri.
-          </p>
-        </li>
-        <li class="mb-2">
-          <span class="font-bold">Memahami Orang Lain</span>
-          <p>
-            Dengan tahu bahwa setiap orang punya cara berpikir dan berperilaku
-            yang berbeda, kamu jadi lebih mudah berempati dan menjalin hubungan,
-            baik itu dengan teman, pasangan, keluarga, atau rekan kerja.
-          </p>
-        </li>
-        <li class="mb-2">
-          <span class="font-bold">Membantu Menentukan Arah Karier</span>
-          <p>
-            Beberapa tipe kepribadian cenderung cocok dengan bidang pekerjaan
-            tertentu. MBTI bisa memberikan gambaran umum tentang lingkungan
-            kerja yang mungkin paling sesuai dengan karaktermu.
-          </p>
-        </li>
-        <li class="mb-2">
-          <span class="font-bold">Menemukan Gaya Komunikasi yang Cocok</span>
-          <p>
-            Tipe kepribadian memengaruhi cara kita menyampaikan dan menerima
-            pesan. Mengetahui MBTI bisa meningkatkan cara berkomunikasi dalam
-            berbagai situasi sosial.
-          </p>
-        </li>
-      </ul>
-      <p>
-        MBTI bukan untuk membatasi siapa kamu, tapi justru memberi kamu
-        pemahaman lebih besar tentang dirimu sendiri dan dunia di sekitarmu.
-        Itulah yang membuat MBTI tetap relevan dan menarik untuk dipelajari oleh
-        siapa pun, kapan pun.
-      </p>
-    </section>
-
-    <!-- Seperti Apa Tes Kepribadian MBTI -->
-    <section class="mx-16 md:mx-40 lg:mx-64 mb-16">
-      <h2 class="font-bold text-4xl mb-4">Seperti Apa Tes Kepribadian MBTI?</h2>
-      <p class="mb-4">
-        Di sini, tes MBTI dilakukan melalui percakapan interaktif dengan AI,
-        jadi bukan sekadar klik-klik pilihan, tapi kamu benar-benar diajak
-        ngobrol dan diajak mikir!
-      </p>
-      <p class="mb-2">Cara kerjanya sederhana tapi seru:</p>
-      <ul class="list-disc ml-4">
-        <li class="mb-2">
-          <span class="font-bold"
-            >Bot akan mengajukan beberapa pertanyaan ringan</span
-          >
-          seputar cara kamu berpikir, mengambil keputusan, berinteraksi dengan
-          orang lain, dan hal-hal kecil yang menggambarkan kepribadianmu.
-        </li>
-        <li class="mb-4">
-          Kamu tinggal jawab jujur sesuai yang paling kamu rasa cocok. AI akan
-          membaca pola jawabanmu dan
-          <span class="font-bold">menyimpulkan tipe MBTI kamu</span> berdasarkan
-          percakapan yang terjadi.
-        </li>
-      </ul>
-      <p class="mb-2">Setelah hasilnya keluar, kamu bisa langsung:</p>
-      <ul class="list-disc ml-4">
-        <li class="mb-2">
-          <span class="font-bold"
-            >Lihat penjelasan lengkap tentang tipe MBTI kamu</span
-          >, mulai dari karakteristik umum, kekuatan, hingga tantangan.
-        </li>
-        <li class="mb-2">
-          <span class="font-bold">Konsultasi lebih lanjut</span> seputar karier
-          yang cocok, gaya komunikasi, cara kerja dalam tim, atau hal-hal
-          lainnya, semuanya lewat chat bareng bot yang siap bantu kapan aja.
-        </li>
-      </ul>
-    </section>
-
-    <section class="mx-16 md:mx-40 lg:mx-64 mb-16">
-      <a
-        href="chatroom.html"
-        class="bg-info px-5 py-2 rounded-full hover:bg-cyan-400 duration-200"
-        >Tes Sekarang →</a
-      >
-    </section>
-
-    <!-- Footer -->
-    <footer class="bg-primary mt-16">
-      <div class="max-w-7xl mx-16 md:mx-40 lg:mx-64 px-4 sm:px-6 lg:px-8 py-12">
-        <div class="grid grid-cols-2 md:grid-cols-4 gap-8 text-sm">
-          <div>
-            <img src="images/logo.png" alt="..." class="h-12" />
-          </div>
-
-          <div>
-            <h3 class="font-semibold mb-3">Produk</h3>
-            <ul class="space-y-2">
-              <li>
-                <a href="#" class="text-gray-100 hover:underline">Tes MBTI</a>
-              </li>
-              <li>
-                <a href="#" class="text-gray-100 hover:underline"
-                  >Tipe-Tipe MBTI</a
-                >
-              </li>
-              <li>
-                <a href="#" class="text-gray-100 hover:underline"
-                  >MBTI Visual</a
-                >
-              </li>
-            </ul>
-          </div>
-
-          <div>
-            <h3 class="font-semibold mb-3">Bantuan</h3>
-            <ul class="space-y-2">
-              <li>
-                <a href="#" class="text-gray-100 hover:underline"
-                  >Hubungi Kami</a
-                >
-              </li>
-              <li><a href="#" class="text-gray-100 hover:underline">FAQ</a></li>
-            </ul>
-          </div>
-
-          <div>
-            <h3 class="font-semibold mb-3">Sosial Media</h3>
-            <ul class="flex space-x-4">
-              <li>
-                <a href="#"
-                  ><ion-icon
-                    name="logo-facebook"
-                    class="hover:text-blue-600 text-xl"
-                  ></ion-icon
-                ></a>
-              </li>
-              <li>
-                <a href="#"
-                  ><ion-icon
-                    name="logo-instagram"
-                    class="hover:text-pink-500 text-xl"
-                  ></ion-icon
-                ></a>
-              </li>
-              <li>
-                <a href="#"
-                  ><ion-icon
-                    name="logo-twitter"
-                    class="hover:text-black text-xl"
-                  ></ion-icon
-                ></a>
-              </li>
-            </ul>
+            <div
+              class="w-28 h-16 bg-purple-100 rounded-xl flex absolute -top-8 left-1/2 -translate-x-1/2"
+            >
+              <img src="images/banner/entp.svg" alt="" class="h-12 m-auto" />
+            </div>
+            <h3 class="font-bold">Debater</h3>
+            <h2 class="text-2xl font-bold">ENTP</h2>
+            <p>
+              Pemikir yang fleksibel dan ingin tahu, tak pernah menolak
+              tantangan intelektual.
+            </p>
           </div>
         </div>
 
+        <div class="mt-4 mb-16 text-center font-bold text-3xl">DIPLOMATS</div>
         <div
-          class="mt-12 border-t pt-6 flex flex-col md:flex-row justify-between items-center text-sm text-gray-100"
+          class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-x-4 gap-y-12 mb-12"
         >
-          <p class="mb-4 md:mb-0">
-            &copy; 2025 MyMBTI. Seluruh hak cipta dilindungi.
-          </p>
+          <div
+            class="bg-success w-full rounded-lg relative pt-10 px-6 pb-4 text-center"
+          >
+            <div
+              class="w-28 h-16 bg-green-100 rounded-xl flex absolute -top-8 left-1/2 -translate-x-1/2"
+            >
+              <img src="images/banner/infj.svg" alt="" class="h-12 m-auto" />
+            </div>
+            <h3 class="font-bold">Advocate</h3>
+            <h2 class="text-2xl font-bold">INFJ</h2>
+            <p>
+              Sosok yang tenang dan misterius, tapi penuh inspirasi dan semangat
+              idealisme.
+            </p>
+          </div>
+          <div
+            class="bg-success w-full rounded-lg relative pt-10 px-6 pb-4 text-center"
+          >
+            <div
+              class="w-28 h-16 bg-green-100 rounded-xl flex absolute -top-8 left-1/2 -translate-x-1/2"
+            >
+              <img src="images/banner/infp.svg" alt="" class="h-12 m-auto" />
+            </div>
+            <h3 class="font-bold">Mediator</h3>
+            <h2 class="text-2xl font-bold">INFP</h2>
+            <p>
+              Pribadi puitis dan penuh empati, selalu semangat mendukung hal-hal
+              bermakna.
+            </p>
+          </div>
+          <div
+            class="bg-success w-full rounded-lg relative pt-10 px-6 pb-4 text-center"
+          >
+            <div
+              class="w-28 h-16 bg-green-100 rounded-xl flex absolute -top-8 left-1/2 -translate-x-1/2"
+            >
+              <img src="images/banner/enfj.svg" alt="" class="h-12 m-auto" />
+            </div>
+            <h3 class="font-bold">Protagonist</h3>
+            <h2 class="text-2xl font-bold">ENFJ</h2>
+            <p>
+              Pemimpin karismatik yang mampu menginspirasi dan menyentuh hati
+              banyak orang.
+            </p>
+          </div>
+          <div
+            class="bg-success w-full rounded-lg relative pt-10 px-6 pb-4 text-center"
+          >
+            <div
+              class="w-28 h-16 bg-green-100 rounded-xl flex absolute -top-8 left-1/2 -translate-x-1/2"
+            >
+              <img src="images/banner/enfp.svg" alt="" class="h-12 m-auto" />
+            </div>
+            <h3 class="font-bold">Campaigner</h3>
+            <h2 class="text-2xl font-bold">ENFP</h2>
+            <p>
+              Jiwa bebas yang penuh semangat, imajinasi, suka bersosialisasi dan
+              selalu membawa semangat positif.
+            </p>
+          </div>
         </div>
-      </div>
-    </footer>
 
-    <script>
-      const navLinks = document.querySelector(".nav-links");
-      function onToggleMenu(icon) {
-        icon.name = icon.name === "menu" ? "close" : "menu";
-        // navLinks.classList.toggle("top-[-100%]");
-        navLinks.classList.toggle("top-full");
-        navLinks.classList.toggle("-top-96");
-      }
+        <div class="mt-4 mb-16 text-center font-bold text-3xl">SENTINELS</div>
+        <div
+          class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-x-4 gap-y-12 mb-12"
+        >
+          <div
+            class="bg-info w-full rounded-lg relative pt-10 px-6 pb-4 text-center"
+          >
+            <div
+              class="w-28 h-16 bg-sky-100 rounded-xl flex absolute -top-8 left-1/2 -translate-x-1/2"
+            >
+              <img src="images/banner/istj.svg" alt="" class="h-12 m-auto" />
+            </div>
+            <h3 class="font-bold">Logistician</h3>
+            <h2 class="text-2xl font-bold">ISTJ</h2>
+            <p>
+              Pribadi yang praktis dan berorientasi pada fakta, sangat dapat
+              diandalkan dan konsisten dalam tindakan.
+            </p>
+          </div>
+          <div
+            class="bg-info w-full rounded-lg relative pt-10 px-6 pb-4 text-center"
+          >
+            <div
+              class="w-28 h-16 bg-sky-100 rounded-xl flex absolute -top-8 left-1/2 -translate-x-1/2"
+            >
+              <img src="images/banner/isfj.svg" alt="" class="h-12 m-auto" />
+            </div>
+            <h3 class="font-bold">Defender</h3>
+            <h2 class="text-2xl font-bold">ISFJ</h2>
+            <p>
+              Pelindung yang penuh dedikasi dan kehangatan, selalu siap menjaga
+              orang-orang yang mereka sayangi.
+            </p>
+          </div>
+          <div
+            class="bg-info w-full rounded-lg relative pt-10 px-6 pb-4 text-center"
+          >
+            <div
+              class="w-28 h-16 bg-sky-100 rounded-xl flex absolute -top-8 left-1/2 -translate-x-1/2"
+            >
+              <img src="images/banner/estj.svg" alt="" class="h-12 m-auto" />
+            </div>
+            <h3 class="font-bold">Executive</h3>
+            <h2 class="text-2xl font-bold">ESTJ</h2>
+            <p>
+              Administrator yang hebat, sangat unggul dalam mengatur orang
+              maupun situasi dengan efisien.
+            </p>
+          </div>
+          <div
+            class="bg-info w-full rounded-lg relative pt-10 px-6 pb-4 text-center"
+          >
+            <div
+              class="w-28 h-16 bg-sky-100 rounded-xl flex absolute -top-8 left-1/2 -translate-x-1/2"
+            >
+              <img src="images/banner/esfj.svg" alt="" class="h-12 m-auto" />
+            </div>
+            <h3 class="font-bold">Consul</h3>
+            <h2 class="text-2xl font-bold">ESFJ</h2>
+            <p>
+              Sosok yang sangat peduli, ramah, dan disukai banyak orang, selalu
+              antusias membantu orang lain.
+            </p>
+          </div>
+        </div>
 
-      document.addEventListener("alpine:init", () => {
-        Alpine.data("mbtiSlide", () => ({
-          activeSlide: 1,
-          slides: [
-            { id: 1, title: "ANALYSTS", img: "images/analysts.jpg" },
-            { id: 2, title: "DIPLOMATS", img: "images/diplomats.jpg" },
-            { id: 3, title: "SENTINELS", img: "images/sentinels.jpg" },
-            { id: 4, title: "EXPLORERS", img: "images/explorers.jpg" },
-          ],
-          loop() {
-            setInterval(() => {
-              this.activeSlide =
-                this.activeSlide === 4 ? 1 : this.activeSlide + 1;
-            }, 3000);
-          },
-        }));
-      });
-    </script>
+        <div class="mt-4 mb-16 text-center font-bold text-3xl">EXPLORERS</div>
+        <div
+          class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-x-4 gap-y-12 mb-12"
+        >
+          <div
+            class="bg-warning w-full rounded-lg relative pt-10 px-6 pb-4 text-center"
+          >
+            <div
+              class="w-28 h-16 bg-yellow-100 rounded-xl flex absolute -top-8 left-1/2 -translate-x-1/2"
+            >
+              <img src="images/banner/istp.svg" alt="" class="h-12 m-auto" />
+            </div>
+            <h3 class="font-bold">Virtuoso</h3>
+            <h2 class="text-2xl font-bold">ISTP</h2>
+            <p>
+              Eksperimen praktis yang berani, ahli menggunakan berbagai macam
+              alat dan teknik.
+            </p>
+          </div>
+          <div
+            class="bg-warning w-full rounded-lg relative pt-10 px-6 pb-4 text-center"
+          >
+            <div
+              class="w-28 h-16 bg-yellow-100 rounded-xl flex absolute -top-8 left-1/2 -translate-x-1/2"
+            >
+              <img src="images/banner/isfp.svg" alt="" class="h-12 m-auto" />
+            </div>
+            <h3 class="font-bold">Adventurer</h3>
+            <h2 class="text-2xl font-bold">ISFP</h2>
+            <p>
+              Seniman yang fleksibel dan menawan, selalu siap untuk menjelajah
+              dan merasakan hal-hal baru.
+            </p>
+          </div>
+          <div
+            class="bg-warning w-full rounded-lg relative pt-10 px-6 pb-4 text-center"
+          >
+            <div
+              class="w-28 h-16 bg-yellow-100 rounded-xl flex absolute -top-8 left-1/2 -translate-x-1/2"
+            >
+              <img src="images/banner/estp.svg" alt="" class="h-12 m-auto" />
+            </div>
+            <h3 class="font-bold">Entrepreneur</h3>
+            <h2 class="text-2xl font-bold">ESTP</h2>
+            <p>
+              Pribadi yang cerdas, penuh energi, dan sangat peka, dengan
+              semangat tinggi menjalani hidup penuh tantangan.
+            </p>
+          </div>
+          <div
+            class="bg-warning w-full rounded-lg relative pt-10 px-6 pb-4 text-center"
+          >
+            <div
+              class="w-28 h-16 bg-yellow-100 rounded-xl flex absolute -top-8 left-1/2 -translate-x-1/2"
+            >
+              <img src="images/banner/esfp.svg" alt="" class="h-12 m-auto" />
+            </div>
+            <h3 class="font-bold">Entertainer</h3>
+            <h2 class="text-2xl font-bold">ESFP</h2>
+            <p>
+              Orang yang spontan, penuh semangat, dan antusias, kehadiran mereka
+              selalu membawa keceriaan.
+            </p>
+          </div>
+        </div>
+      </section>
 
-    <!-- AlpineJS -->
-    <script
-      defer
-      src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"
-    ></script>
+      <!-- Mengapa MBTI Menarik -->
+      <section class="mx-16 md:mx-40 lg:mx-64 mb-16">
+        <h2 class="font-bold text-4xl mb-4">Mengapa MBTI Menarik?</h2>
+        <p class="mb-2">
+          MBTI menarik bukan hanya karena seru untuk dicoba, tapi karena bisa
+          membuka wawasan tentang siapa diri kita sebenarnya. Banyak orang
+          merasa terbantu saat mengetahui tipe MBTI mereka karena ternyata, cara
+          kita berpikir, merasakan, dan bertindak itu punya pola yang bisa
+          dijelaskan.
+        </p>
+        <ul class="list-disc ml-4">
+          <li class="mb-2">
+            <span class="font-bold">Mengenal Diri Sendiri Lebih Dalam</span>
+            <p>
+              MBTI membantu kamu memahami bagaimana kamu memproses informasi,
+              membuat keputusan, hingga cara kamu mengisi ulang energi. Ini bisa
+              jadi titik awal untuk pengembangan diri.
+            </p>
+          </li>
+          <li class="mb-2">
+            <span class="font-bold">Memahami Orang Lain</span>
+            <p>
+              Dengan tahu bahwa setiap orang punya cara berpikir dan berperilaku
+              yang berbeda, kamu jadi lebih mudah berempati dan menjalin
+              hubungan, baik itu dengan teman, pasangan, keluarga, atau rekan
+              kerja.
+            </p>
+          </li>
+          <li class="mb-2">
+            <span class="font-bold">Membantu Menentukan Arah Karier</span>
+            <p>
+              Beberapa tipe kepribadian cenderung cocok dengan bidang pekerjaan
+              tertentu. MBTI bisa memberikan gambaran umum tentang lingkungan
+              kerja yang mungkin paling sesuai dengan karaktermu.
+            </p>
+          </li>
+          <li class="mb-2">
+            <span class="font-bold">Menemukan Gaya Komunikasi yang Cocok</span>
+            <p>
+              Tipe kepribadian memengaruhi cara kita menyampaikan dan menerima
+              pesan. Mengetahui MBTI bisa meningkatkan cara berkomunikasi dalam
+              berbagai situasi sosial.
+            </p>
+          </li>
+        </ul>
+        <p>
+          MBTI bukan untuk membatasi siapa kamu, tapi justru memberi kamu
+          pemahaman lebih besar tentang dirimu sendiri dan dunia di sekitarmu.
+          Itulah yang membuat MBTI tetap relevan dan menarik untuk dipelajari
+          oleh siapa pun, kapan pun.
+        </p>
+      </section>
 
-    <!-- Ionicons -->
-    <script
-      type="module"
-      src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"
-    ></script>
-    <script
-      nomodule
-      src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"
-    ></script>
+      <!-- Seperti Apa Tes Kepribadian MBTI -->
+      <section class="mx-16 md:mx-40 lg:mx-64 mb-16">
+        <h2 class="font-bold text-4xl mb-4">
+          Seperti Apa Tes Kepribadian MBTI?
+        </h2>
+        <p class="mb-4">
+          Di sini, tes MBTI dilakukan melalui percakapan interaktif dengan AI,
+          jadi bukan sekadar klik-klik pilihan, tapi kamu benar-benar diajak
+          ngobrol dan diajak mikir!
+        </p>
+        <p class="mb-2">Cara kerjanya sederhana tapi seru:</p>
+        <ul class="list-disc ml-4">
+          <li class="mb-2">
+            <span class="font-bold"
+              >Bot akan mengajukan beberapa pertanyaan ringan</span
+            >
+            seputar cara kamu berpikir, mengambil keputusan, berinteraksi dengan
+            orang lain, dan hal-hal kecil yang menggambarkan kepribadianmu.
+          </li>
+          <li class="mb-4">
+            Kamu tinggal jawab jujur sesuai yang paling kamu rasa cocok. AI akan
+            membaca pola jawabanmu dan
+            <span class="font-bold">menyimpulkan tipe MBTI kamu</span>
+            berdasarkan percakapan yang terjadi.
+          </li>
+        </ul>
+        <p class="mb-2">Setelah hasilnya keluar, kamu bisa langsung:</p>
+        <ul class="list-disc ml-4">
+          <li class="mb-2">
+            <span class="font-bold"
+              >Lihat penjelasan lengkap tentang tipe MBTI kamu</span
+            >, mulai dari karakteristik umum, kekuatan, hingga tantangan.
+          </li>
+          <li class="mb-2">
+            <span class="font-bold">Konsultasi lebih lanjut</span> seputar
+            karier yang cocok, gaya komunikasi, cara kerja dalam tim, atau
+            hal-hal lainnya, semuanya lewat chat bareng bot yang siap bantu
+            kapan aja.
+          </li>
+        </ul>
+      </section>
+
+      <section class="mx-16 md:mx-40 lg:mx-64 mb-16">
+        <a
+          href="chatroom.html"
+          class="bg-info px-5 py-2 rounded-full hover:bg-cyan-400 duration-200"
+          >Tes Sekarang →</a
+        >
+      </section>
+
+      <!-- Footer -->
+      <footer class="bg-primary mt-16">
+        <div
+          class="max-w-7xl mx-16 md:mx-40 lg:mx-64 px-4 sm:px-6 lg:px-8 py-12"
+        >
+          <div class="grid grid-cols-2 md:grid-cols-4 gap-8 text-sm">
+            <div>
+              <img src="images/logo.png" alt="..." class="h-12" />
+            </div>
+
+            <div>
+              <h3 class="font-semibold mb-3">Produk</h3>
+              <ul class="space-y-2">
+                <li>
+                  <a href="#" class="text-gray-100 hover:underline">Tes MBTI</a>
+                </li>
+                <li>
+                  <a href="#" class="text-gray-100 hover:underline"
+                    >Tipe-Tipe MBTI</a
+                  >
+                </li>
+                <li>
+                  <a href="#" class="text-gray-100 hover:underline"
+                    >MBTI Visual</a
+                  >
+                </li>
+              </ul>
+            </div>
+
+            <div>
+              <h3 class="font-semibold mb-3">Bantuan</h3>
+              <ul class="space-y-2">
+                <li>
+                  <a href="#" class="text-gray-100 hover:underline"
+                    >Hubungi Kami</a
+                  >
+                </li>
+                <li>
+                  <a href="#" class="text-gray-100 hover:underline">FAQ</a>
+                </li>
+              </ul>
+            </div>
+
+            <div>
+              <h3 class="font-semibold mb-3">Sosial Media</h3>
+              <ul class="flex space-x-4">
+                <li>
+                  <a href="#"
+                    ><ion-icon
+                      name="logo-facebook"
+                      class="hover:text-blue-600 text-xl"
+                    ></ion-icon
+                  ></a>
+                </li>
+                <li>
+                  <a href="#"
+                    ><ion-icon
+                      name="logo-instagram"
+                      class="hover:text-pink-500 text-xl"
+                    ></ion-icon
+                  ></a>
+                </li>
+                <li>
+                  <a href="#"
+                    ><ion-icon
+                      name="logo-twitter"
+                      class="hover:text-black text-xl"
+                    ></ion-icon
+                  ></a>
+                </li>
+              </ul>
+            </div>
+          </div>
+
+          <div
+            class="mt-12 border-t pt-6 flex flex-col md:flex-row justify-between items-center text-sm text-gray-100"
+          >
+            <p class="mb-4 md:mb-0">
+              &copy; 2025 MyMBTI. Seluruh hak cipta dilindungi.
+            </p>
+          </div>
+        </div>
+      </footer>
+
+      <script>
+        const navLinks = document.querySelector(".nav-links");
+        function onToggleMenu(icon) {
+          icon.name = icon.name === "menu" ? "close" : "menu";
+          // navLinks.classList.toggle("top-[-100%]");
+          navLinks.classList.toggle("top-full");
+          navLinks.classList.toggle("-top-96");
+        }
+
+        document.addEventListener("alpine:init", () => {
+          Alpine.data("mbtiSlide", () => ({
+            activeSlide: 1,
+            slides: [
+              { id: 1, title: "ANALYSTS", img: "images/analysts.jpg" },
+              { id: 2, title: "DIPLOMATS", img: "images/diplomats.jpg" },
+              { id: 3, title: "SENTINELS", img: "images/sentinels.jpg" },
+              { id: 4, title: "EXPLORERS", img: "images/explorers.jpg" },
+            ],
+            loop() {
+              setInterval(() => {
+                this.activeSlide =
+                  this.activeSlide === 4 ? 1 : this.activeSlide + 1;
+              }, 3000);
+            },
+          }));
+        });
+      </script>
+
+      <!-- AlpineJS -->
+      <script
+        defer
+        src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"
+      ></script>
+
+      <!-- Ionicons -->
+      <script
+        type="module"
+        src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"
+      ></script>
+      <script
+        nomodule
+        src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"
+      ></script>
+    </div>
   </body>
 </html>
